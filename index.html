@@ -1,0 +1,2919 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Bellenzia Studio — Lash Lifting, Perfilado y Laminado de Cejas en Pocitos y Chuy."
+    >
+
+    <title>Bellenzia Studio | Belleza Natural</title>
+
+
+    <!-- =========================================
+         GOOGLE FONTS
+    ========================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =========================================
+         ICONOS
+    ========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- =========================================
+         CSS
+    ========================================== -->
+
+    <style>
+
+        /* =========================================
+           VARIABLES
+        ========================================== */
+
+        :root {
+
+            --cream: #FDFBD4;
+            --cream-light: #fffef1;
+
+            --beige: #eee8da;
+
+            --taupe: #b8aa97;
+
+            --brown-light: #927b66;
+
+            --brown: #6b5240;
+
+            --brown-dark: #3d2c21;
+
+            --white: #ffffff;
+
+            --text-light: #77695e;
+
+            --border: #e8e0d5;
+
+            --shadow:
+                0 15px 40px rgba(72, 52, 39, 0.10);
+
+            --transition:
+                all 0.35s ease;
+        }
+
+
+        /* =========================================
+           RESET
+        ========================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family: "Montserrat", sans-serif;
+
+            color: var(--brown-dark);
+
+            background: var(--cream-light);
+
+            line-height: 1.6;
+
+            overflow-x: hidden;
+        }
+
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        button {
+            font-family: inherit;
+        }
+
+
+        /* =========================================
+           CONTAINER
+        ========================================== */
+
+        .container {
+
+            width: min(1180px, 92%);
+
+            margin: auto;
+        }
+
+
+        .section {
+
+            padding: 100px 0;
+        }
+
+
+        /* =========================================
+           SECTION HEADER
+        ========================================== */
+
+        .section-header {
+
+            max-width: 700px;
+
+            margin: 0 auto 55px;
+
+            text-align: center;
+        }
+
+
+        .eyebrow {
+
+            display: inline-block;
+
+            margin-bottom: 12px;
+
+            color: var(--brown-light);
+
+            font-size: 10px;
+
+            font-weight: 600;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+
+        .section-title {
+
+            color: var(--brown-dark);
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(45px, 5vw, 65px);
+
+            font-weight: 500;
+
+            line-height: 0.95;
+        }
+
+
+        .section-description {
+
+            margin-top: 18px;
+
+            color: var(--text-light);
+
+            font-size: 13px;
+        }
+
+
+        /* =========================================
+           BOTONES
+        ========================================== */
+
+        .btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            padding: 15px 25px;
+
+            border-radius: 50px;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            letter-spacing: 0.3px;
+
+            transition: var(--transition);
+
+            cursor: pointer;
+        }
+
+
+        .btn-primary {
+
+            background: var(--brown-dark);
+
+            color: var(--white);
+        }
+
+
+        .btn-primary:hover {
+
+            background: var(--brown);
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 25px rgba(57, 41, 31, 0.20);
+        }
+
+
+        .btn-outline {
+
+            border: 1px solid var(--brown);
+
+            color: var(--brown);
+        }
+
+
+        .btn-outline:hover {
+
+            background: var(--brown);
+
+            color: white;
+
+            transform: translateY(-3px);
+        }
+
+
+        .btn-promo {
+
+            background: var(--cream);
+
+            color: var(--brown-dark);
+        }
+
+
+        .btn-promo:hover {
+
+            background: white;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================== */
+
+        header {
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            z-index: 1000;
+
+            background:
+                rgba(255, 254, 241, 0.92);
+
+            backdrop-filter: blur(15px);
+
+            border-bottom:
+                1px solid rgba(99, 76, 59, 0.08);
+
+            transition: var(--transition);
+        }
+
+
+        .navbar {
+
+            height: 78px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        /* =========================================
+           LOGO
+        ========================================== */
+
+        .logo {
+
+            color: var(--brown-dark);
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 31px;
+
+            font-weight: 600;
+
+            line-height: 0.8;
+        }
+
+
+        .logo span {
+
+            display: block;
+
+            margin-top: 7px;
+
+            color: var(--brown-light);
+
+            font-family: "Montserrat", sans-serif;
+
+            font-size: 7px;
+
+            font-weight: 500;
+
+            letter-spacing: 4px;
+
+            text-align: center;
+        }
+
+
+        /* =========================================
+           MENU
+        ========================================== */
+
+        .nav-menu {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+
+            list-style: none;
+        }
+
+
+        .nav-menu a {
+
+            position: relative;
+
+            color: var(--brown-dark);
+
+            font-size: 10px;
+
+            font-weight: 500;
+        }
+
+
+        .nav-menu a::after {
+
+            content: "";
+
+            position: absolute;
+
+            bottom: -6px;
+
+            left: 0;
+
+            width: 0;
+
+            height: 1px;
+
+            background: var(--brown);
+
+            transition: var(--transition);
+        }
+
+
+        .nav-menu a:hover::after {
+
+            width: 100%;
+        }
+
+
+        .menu-toggle {
+
+            display: none;
+
+            border: none;
+
+            background: none;
+
+            color: var(--brown-dark);
+
+            font-size: 24px;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================== */
+
+        .hero {
+
+            min-height: 100vh;
+
+            padding-top: 100px;
+
+            display: flex;
+
+            align-items: center;
+
+            background:
+
+                radial-gradient(
+                    circle at 85% 20%,
+                    #eee8da 0%,
+                    transparent 32%
+                ),
+
+                var(--cream-light);
+        }
+
+
+        .hero-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 0.9fr;
+
+            align-items: center;
+
+            gap: 70px;
+        }
+
+
+        .hero-content {
+
+            animation:
+                fadeUp 0.8s ease;
+        }
+
+
+        .hero-small {
+
+            margin-bottom: 20px;
+
+            color: var(--brown-light);
+
+            font-size: 10px;
+
+            font-weight: 600;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+
+        .hero h1 {
+
+            max-width: 720px;
+
+            color: var(--brown-dark);
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(58px, 7vw, 92px);
+
+            font-weight: 500;
+
+            line-height: 0.88;
+        }
+
+
+        .hero h1 em {
+
+            color: var(--brown-light);
+
+            font-style: italic;
+        }
+
+
+        .hero-description {
+
+            max-width: 550px;
+
+            margin: 30px 0;
+
+            color: var(--text-light);
+
+            font-size: 14px;
+        }
+
+
+        .hero-buttons {
+
+            display: flex;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+
+        /* =========================================
+           HERO VISUAL
+        ========================================== */
+
+        .hero-visual {
+
+            position: relative;
+
+            height: 580px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        .hero-circle {
+
+            position: relative;
+
+            width: 430px;
+
+            height: 430px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #eee8da,
+                    #d6c6b4
+                );
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .hero-circle::before {
+
+            content: "BELLE";
+
+            position: absolute;
+
+            color:
+                rgba(255, 255, 255, 0.38);
+
+            font-family:
+                "Cormorant Garamond", serif;
+
+            font-size: 125px;
+        }
+
+
+        .beauty-card {
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: 60px;
+
+            padding: 19px 24px;
+
+            border-radius: 15px;
+
+            background:
+                rgba(255,255,255,0.88);
+
+            backdrop-filter: blur(10px);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .beauty-card small {
+
+            display: block;
+
+            margin-bottom: 2px;
+
+            color: var(--brown-light);
+
+            font-size: 8px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        .beauty-card strong {
+
+            color: var(--brown-dark);
+
+            font-family:
+                "Cormorant Garamond", serif;
+
+            font-size: 24px;
+        }
+
+
+        /* =========================================
+           SERVICIOS
+        ========================================== */
+
+        .services {
+
+            background: var(--white);
+        }
+
+
+        .services-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+
+        .service-card {
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 38px 30px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 20px;
+
+            background: white;
+
+            transition: var(--transition);
+        }
+
+
+        .service-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 4px;
+
+            background: var(--cream);
+
+            transform:
+                scaleX(0);
+
+            transform-origin:
+                left;
+
+            transition: var(--transition);
+        }
+
+
+        .service-card:hover {
+
+            transform:
+                translateY(-8px);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+
+        .service-card:hover::before {
+
+            transform:
+                scaleX(1);
+        }
+
+
+        .service-number {
+
+            margin-bottom: 20px;
+
+            color: var(--taupe);
+
+            font-family:
+                "Cormorant Garamond", serif;
+
+            font-size: 25px;
+        }
+
+
+        .service-card h3 {
+
+            margin-bottom: 12px;
+
+            color: var(--brown-dark);
+
+            font-family:
+                "Cormorant Garamond", serif;
+
+            font-size: 30px;
+
+            font-weight: 600;
+
+            line-height: 1.05;
+        }
+
+
+        .service-card p {
+
+            min-height: 65px;
+
+            color: var(--text-light);
+
+            font-size: 12px;
+        }
+
+
+        .price {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-top: 25px;
+
+            padding-top: 20px;
+
+            border-top:
+                1px solid var(--border);
+        }
+
+
+        .price strong {
+
+            color: var(--brown);
+
+            font-size: 22px;
+        }
+
+
+        .price span {
+
+            color: var(--brown-light);
+
+            font-size: 8px;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================
+           PROMOCIONES DE OCTUBRE
+        ========================================== */
+
+        .promotions {
+
+            position: relative;
+
+            overflow: hidden;
+
+            color: white;
+
+            background: var(--brown-dark);
+        }
+
+
+        .promotions::before {
+
+            content: "OCTUBRE";
+
+            position: absolute;
+
+            top: 50px;
+
+            right: -70px;
+
+            color:
+                rgba(255,255,255,0.035);
+
+            font-family:
+                "Cormorant Garamond", serif;
+
+            font-size: 190px;
+
+            white-space: nowrap;
+        }
+
+
+        .promotions .section-title {
+
+            color: white;
+        }
+
+
+        .promotions .section-description {
+
+            color: #cbbdb0;
+        }
+
+
+        .promo-badge {
+
+            display: inline-block;
+
+            margin-bottom: 17px;
+
+            padding: 7px 15px;
+
+            border-radius: 50px;
+
+            color: var(--brown-dark);
+
+            background: var(--cream);
+
+            font-size: 8px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        .promo-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .promo-card {
+
+            position: relative;
+
+            padding: 35px 28px;
+
+            border:
+                1px solid rgba(255,255,255,0.13);
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,0.07);
+
+            transition: var(--transition);
+        }
+
+
+        .promo-card:hover {
+
+            transform:
+                translateY(-7px);
+
+            border-color:
+                rgba(253,251,212,0.7);
+
+            background:
+                rgba(255,255,255,0.11);
+        }
+
+
+        .promo-label {
+
+            display: inline-block;
+
+            margin-bottom: 18px;
+
+            padding: 6px 10px;
+
+            border:
+                1px solid
+                rgba(253,251,212,0.35);
+
+            border-radius: 50px;
+
+            color: var(--cream);
+
+            font-size: 8px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        .promo-card h3 {
+
+            margin-bottom: 25px;
+
+            color: white;
+
+            font-family:
+                "Cormorant Garamond", serif;
+
+            font-size: 30px;
+
+            font-weight: 600;
+
+            line-height: 1.05;
+        }
+
+
+        .promo-price {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 2px;
+        }
+
+
+        .old-price {
+
+            color: #aa9b8c;
+
+            font-size: 14px;
+
+            text-decoration: line-through;
+        }
+
+
+        .new-price {
+
+            color: var(--cream);
+
+            font-family:
+                "Cormorant Garamond", serif;
+
+            font-size: 50px;
+
+            line-height: 1;
+        }
+
+
+        .saving {
+
+            margin:
+                10px 0 25px;
+
+            color: #c8b9aa;
+
+            font-size: 9px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================
+           UBICACIONES
+        ========================================== */
+
+        .locations {
+
+            background: var(--beige);
+        }
+
+
+        .locations-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .location-card {
+
+            padding: 45px;
+
+            border-radius: 22px;
+
+            background: white;
+
+            box-shadow:
+                0 10px 30px
+                rgba(72,52,39,0.06);
+
+            transition: var(--transition);
+        }
+
+
+        .location-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .location-icon {
+
+            width: 48px;
+
+            height: 48px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 20px;
+
+            border-radius: 50%;
+
+            color: var(--brown);
+
+            background: var(--cream);
+
+            font-size: 18px;
+        }
+
+
+        .location-card h3 {
+
+            margin-bottom: 5px;
+
+            color: var(--brown-dark);
+
+            font-family:
+                "Cormorant Garamond", serif;
+
+            font-size: 38px;
+
+            font-weight: 600;
+        }
+
+
+        .location-card p {
+
+            margin-bottom: 20px;
+
+            color: var(--text-light);
+
+            font-size: 13px;
+        }
+
+
+        .location-link {
+
+            color: var(--brown);
+
+            font-size: 10px;
+
+            font-weight: 600;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================
+           CONTACTO
+        ========================================== */
+
+        .contact {
+
+            background: var(--cream);
+        }
+
+
+        .contact-wrapper {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 60px;
+
+            align-items: center;
+
+            padding: 70px;
+
+            border-radius: 30px;
+
+            color: white;
+
+            background: var(--brown-dark);
+        }
+
+
+        .contact h2 {
+
+            color: white;
+
+            font-family:
+                "Cormorant Garamond", serif;
+
+            font-size:
+                clamp(45px, 5vw, 68px);
+
+            font-weight: 500;
+
+            line-height: 0.9;
+        }
+
+
+        .contact p {
+
+            margin-top: 20px;
+
+            color: #c9bbae;
+
+            font-size: 13px;
+        }
+
+
+        .contact-info {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 15px;
+        }
+
+
+        .contact-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 17px 20px;
+
+            border-radius: 12px;
+
+            background:
+                rgba(255,255,255,0.06);
+
+            transition: var(--transition);
+        }
+
+
+        .contact-item:hover {
+
+            background:
+                rgba(255,255,255,0.11);
+
+            transform:
+                translateX(3px);
+        }
+
+
+        .contact-item > span {
+
+            width: 40px;
+
+            height: 40px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            color: var(--brown-dark);
+
+            background: var(--cream);
+        }
+
+
+        .contact-item small {
+
+            display: block;
+
+            margin-bottom: 2px;
+
+            color: #a9998a;
+
+            font-size: 8px;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+        }
+
+
+        .contact-item strong {
+
+            color: white;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================== */
+
+        footer {
+
+            padding:
+                50px 0 25px;
+
+            color: white;
+
+            background: #2b1e17;
+        }
+
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1.5fr 1fr 1fr 1fr;
+
+            gap: 40px;
+
+            padding-bottom: 35px;
+        }
+
+
+        .footer-logo {
+
+            color: white;
+
+            font-family:
+                "Cormorant Garamond", serif;
+
+            font-size: 36px;
+        }
+
+
+        .footer-description {
+
+            max-width: 280px;
+
+            margin-top: 10px;
+
+            color: #a99b90;
+
+            font-size: 10px;
+        }
+
+
+        footer h4 {
+
+            margin-bottom: 17px;
+
+            color: white;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        footer ul {
+
+            list-style: none;
+        }
+
+
+        footer li {
+
+            margin-bottom: 9px;
+        }
+
+
+        footer li a {
+
+            color: #a99b90;
+
+            font-size: 10px;
+
+            transition: var(--transition);
+        }
+
+
+        footer li a:hover {
+
+            color: white;
+        }
+
+
+        .copyright {
+
+            padding-top: 20px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            color: #80736a;
+
+            font-size: 8px;
+
+            text-align: center;
+        }
+
+
+        /* =========================================
+           WHATSAPP
+        ========================================== */
+
+        .whatsapp-float {
+
+            position: fixed;
+
+            right: 22px;
+
+            bottom: 22px;
+
+            z-index: 999;
+
+            width: 60px;
+
+            height: 60px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            color: white;
+
+            background: #25D366;
+
+            font-size: 26px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(0,0,0,0.18);
+
+            transition: var(--transition);
+        }
+
+
+        .whatsapp-float:hover {
+
+            transform:
+                scale(1.08)
+                translateY(-3px);
+        }
+
+
+        /* =========================================
+           ANIMACIONES
+        ========================================== */
+
+        .reveal {
+
+            opacity: 0;
+
+            transform:
+                translateY(30px);
+
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s ease;
+        }
+
+
+        .reveal.active {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        @keyframes fadeUp {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(25px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        /* =========================================
+           RESPONSIVE TABLET
+        ========================================== */
+
+        @media (max-width: 900px) {
+
+            .nav-menu {
+
+                position: absolute;
+
+                top: 78px;
+
+                left: 0;
+
+                width: 100%;
+
+                display: flex;
+
+                flex-direction: column;
+
+                gap: 20px;
+
+                padding: 30px;
+
+                background: var(--cream-light);
+
+                box-shadow:
+                    0 15px 30px
+                    rgba(0,0,0,0.08);
+
+                transform:
+                    translateY(-150%);
+
+                transition: var(--transition);
+            }
+
+
+            .nav-menu.active {
+
+                transform:
+                    translateY(0);
+            }
+
+
+            .menu-toggle {
+
+                display: block;
+            }
+
+
+            .navbar > .btn {
+
+                display: none;
+            }
+
+
+            .hero-grid {
+
+                grid-template-columns: 1fr;
+
+                text-align: center;
+            }
+
+
+            .hero-description {
+
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+
+            .hero-buttons {
+
+                justify-content: center;
+            }
+
+
+            .hero-visual {
+
+                height: 400px;
+            }
+
+
+            .hero-circle {
+
+                width: 300px;
+
+                height: 300px;
+            }
+
+
+            .hero-circle::before {
+
+                font-size: 80px;
+            }
+
+
+            .beauty-card {
+
+                bottom: 10px;
+
+                left: 50%;
+
+                transform:
+                    translateX(-50%);
+            }
+
+
+            .services-grid,
+            .promo-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .contact-wrapper {
+
+                grid-template-columns: 1fr;
+
+                padding: 50px 35px;
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+
+        /* =========================================
+           RESPONSIVE MOBILE
+        ========================================== */
+
+        @media (max-width: 600px) {
+
+            .section {
+
+                padding: 75px 0;
+            }
+
+
+            .hero {
+
+                padding-top: 120px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 55px;
+            }
+
+
+            .hero-description {
+
+                font-size: 13px;
+            }
+
+
+            .hero-visual {
+
+                height: 340px;
+            }
+
+
+            .hero-circle {
+
+                width: 250px;
+
+                height: 250px;
+            }
+
+
+            .hero-circle::before {
+
+                font-size: 65px;
+            }
+
+
+            .services-grid,
+            .promo-grid,
+            .locations-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .service-card {
+
+                padding: 32px 25px;
+            }
+
+
+            .promo-card {
+
+                padding: 32px 25px;
+            }
+
+
+            .location-card {
+
+                padding: 30px;
+            }
+
+
+            .contact-wrapper {
+
+                padding: 40px 25px;
+
+                border-radius: 22px;
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns: 1fr;
+
+                text-align: center;
+            }
+
+
+            .footer-description {
+
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+
+            .whatsapp-float {
+
+                right: 15px;
+
+                bottom: 15px;
+
+                width: 55px;
+
+                height: 55px;
+
+                font-size: 23px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header id="header">
+
+        <div class="container navbar">
+
+
+            <a href="#inicio" class="logo">
+
+                Bellenzia
+
+                <span>
+                    STUDIO
+                </span>
+
+            </a>
+
+
+            <nav>
+
+                <ul class="nav-menu" id="navMenu">
+
+                    <li>
+                        <a href="#inicio">
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#servicios">
+                            Servicios
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#promociones">
+                            Promociones de Octubre
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#ubicaciones">
+                            Ubicaciones
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#contacto">
+                            Contacto
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+
+            <a
+                href="https://wa.me/59898910775?text=Hola%20Bellenzia%20Studio%2C%20quiero%20agendar%20una%20cita."
+                target="_blank"
+                class="btn btn-primary"
+            >
+
+                Agendar Cita
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+            </a>
+
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Abrir menú"
+            >
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+         HERO
+    ========================================== -->
+
+    <main>
+
+
+        <section class="hero" id="inicio">
+
+            <div class="container hero-grid">
+
+
+                <div class="hero-content">
+
+
+                    <div class="hero-small">
+
+                        Beauty Studio · Montevideo & Chuy
+
+                    </div>
+
+
+                    <h1>
+
+                        Realza tu mirada
+
+                        <em>
+                            y resalta
+                        </em>
+
+                        tu belleza natural.
+
+                    </h1>
+
+
+                    <p class="hero-description">
+
+                        Especialistas en Lash Lifting,
+                        Perfilado y Laminado de Cejas
+                        en Pocitos y Chuy.
+
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+
+                        <a
+                            href="https://wa.me/59898910775?text=Hola%20Bellenzia%20Studio%2C%20quiero%20reservar%20un%20lugar."
+                            target="_blank"
+                            class="btn btn-primary"
+                        >
+
+                            Reservar por WhatsApp
+
+                            <i class="fa-brands fa-whatsapp"></i>
+
+                        </a>
+
+
+                        <a
+                            href="#servicios"
+                            class="btn btn-outline"
+                        >
+
+                            Ver servicios
+
+                            <i class="fa-solid fa-arrow-down"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="hero-visual">
+
+
+                    <div class="hero-circle">
+                    </div>
+
+
+                    <div class="beauty-card">
+
+                        <small>
+                            Tu momento de belleza
+                        </small>
+
+                        <strong>
+                            Sentite increíble.
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             SERVICIOS Y PRECIOS
+        ========================================== -->
+
+        <section
+            class="section services"
+            id="servicios"
+        >
+
+            <div class="container">
+
+
+                <div class="section-header reveal">
+
+                    <span class="eyebrow">
+                        Servicios
+                    </span>
+
+                    <h2 class="section-title">
+                        Nuestros servicios.
+                    </h2>
+
+                    <p class="section-description">
+
+                        Servicios pensados para realzar
+                        tu belleza natural y destacar
+                        tu mirada.
+
+                    </p>
+
+                </div>
+
+
+                <div class="services-grid">
+
+
+                    <!-- SERVICIO 1 -->
+
+                    <article class="service-card reveal">
+
+                        <div class="service-number">
+                            01
+                        </div>
+
+                        <h3>
+                            Lash Lifting
+                            + Serum
+                        </h3>
+
+                        <p>
+
+                            Realza y curva tus pestañas
+                            naturales para conseguir
+                            una mirada más abierta
+                            y definida.
+
+                        </p>
+
+
+                        <div class="price">
+
+                            <strong>
+                                $1.700
+                            </strong>
+
+                            <span>
+                                Precio habitual
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- SERVICIO 2 -->
+
+                    <article class="service-card reveal">
+
+                        <div class="service-number">
+                            02
+                        </div>
+
+                        <h3>
+                            Perfilado
+                            + Laminado de Cejas
+                        </h3>
+
+                        <p>
+
+                            Diseño, definición y laminado
+                            para unas cejas ordenadas,
+                            naturales y armoniosas.
+
+                        </p>
+
+
+                        <div class="price">
+
+                            <strong>
+                                $1.090
+                            </strong>
+
+                            <span>
+                                Precio habitual
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- SERVICIO 3 -->
+
+                    <article class="service-card reveal">
+
+                        <div class="service-number">
+                            03
+                        </div>
+
+                        <h3>
+                            Perfilado
+                            de Cejas
+                        </h3>
+
+                        <p>
+
+                            Perfilado personalizado para
+                            definir tus cejas respetando
+                            la forma natural de tu rostro.
+
+                        </p>
+
+
+                        <div class="price">
+
+                            <strong>
+                                $600
+                            </strong>
+
+                            <span>
+                                Precio habitual
+                            </span>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             PROMOCIONES DE OCTUBRE
+        ========================================== -->
+
+        <section
+            class="section promotions"
+            id="promociones"
+        >
+
+            <div class="container">
+
+
+                <div class="section-header reveal">
+
+
+                    <span class="promo-badge">
+
+                        Octubre · Promociones del Mes
+
+                    </span>
+
+
+                    <h2 class="section-title">
+
+                        Octubre se disfruta
+                        en Bellenzia.
+
+                    </h2>
+
+
+                    <p class="section-description">
+
+                        Aprovechá nuestras promociones
+                        especiales durante el mes de octubre.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="promo-grid">
+
+
+                    <!-- PROMO 1 -->
+
+                    <article class="promo-card reveal">
+
+
+                        <span class="promo-label">
+
+                            Promo Octubre
+
+                        </span>
+
+
+                        <h3>
+
+                            Lash Lifting
+                            + Serum
+
+                        </h3>
+
+
+                        <div class="promo-price">
+
+                            <span class="old-price">
+
+                                $1.700
+
+                            </span>
+
+
+                            <span class="new-price">
+
+                                $1.275
+
+                            </span>
+
+                        </div>
+
+
+                        <p class="saving">
+
+                            Ahorrás $425
+
+                        </p>
+
+
+                        <a
+                            href="https://wa.me/59898910775?text=Hola%20Bellenzia%20Studio%2C%20quiero%20aprovechar%20la%20promoci%C3%B3n%20de%20octubre%20de%20Lash%20Lifting%20%2B%20Serum%20a%20%241.275."
+                            target="_blank"
+                            class="btn btn-promo"
+                        >
+
+                            Aprovechar Promo
+
+                            <i class="fa-brands fa-whatsapp"></i>
+
+                        </a>
+
+                    </article>
+
+
+
+                    <!-- PROMO 2 -->
+
+                    <article class="promo-card reveal">
+
+
+                        <span class="promo-label">
+
+                            Promo Octubre
+
+                        </span>
+
+
+                        <h3>
+
+                            Perfilado
+                            + Laminado de Cejas
+
+                        </h3>
+
+
+                        <div class="promo-price">
+
+                            <span class="old-price">
+
+                                $1.090
+
+                            </span>
+
+
+                            <span class="new-price">
+
+                                $815
+
+                            </span>
+
+                        </div>
+
+
+                        <p class="saving">
+
+                            Ahorrás $275
+
+                        </p>
+
+
+                        <a
+                            href="https://wa.me/59898910775?text=Hola%20Bellenzia%20Studio%2C%20quiero%20aprovechar%20la%20promoci%C3%B3n%20de%20octubre%20de%20Perfilado%20%2B%20Laminado%20de%20Cejas%20a%20%24815."
+                            target="_blank"
+                            class="btn btn-promo"
+                        >
+
+                            Aprovechar Promo
+
+                            <i class="fa-brands fa-whatsapp"></i>
+
+                        </a>
+
+                    </article>
+
+
+
+                    <!-- PROMO 3 -->
+
+                    <article class="promo-card reveal">
+
+
+                        <span class="promo-label">
+
+                            Promo Octubre
+
+                        </span>
+
+
+                        <h3>
+
+                            Perfilado
+                            de Cejas
+
+                        </h3>
+
+
+                        <div class="promo-price">
+
+                            <span class="old-price">
+
+                                $600
+
+                            </span>
+
+
+                            <span class="new-price">
+
+                                $450
+
+                            </span>
+
+                        </div>
+
+
+                        <p class="saving">
+
+                            Ahorrás $150
+
+                        </p>
+
+
+                        <a
+                            href="https://wa.me/59898910775?text=Hola%20Bellenzia%20Studio%2C%20quiero%20aprovechar%20la%20promoci%C3%B3n%20de%20octubre%20de%20Perfilado%20de%20Cejas%20a%20%24450."
+                            target="_blank"
+                            class="btn btn-promo"
+                        >
+
+                            Aprovechar Promo
+
+                            <i class="fa-brands fa-whatsapp"></i>
+
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             UBICACIONES
+        ========================================== -->
+
+        <section
+            class="section locations"
+            id="ubicaciones"
+        >
+
+            <div class="container">
+
+
+                <div class="section-header reveal">
+
+
+                    <span class="eyebrow">
+                        Encontranos
+                    </span>
+
+
+                    <h2 class="section-title">
+
+                        Dos lugares,
+                        un mismo cuidado.
+
+                    </h2>
+
+
+                    <p class="section-description">
+
+                        Elegí la sede que te quede
+                        más cómoda.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="locations-grid">
+
+
+                    <!-- POCITOS -->
+
+                    <article class="location-card reveal">
+
+
+                        <div class="location-icon">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                        </div>
+
+
+                        <h3>
+                            Pocitos
+                        </h3>
+
+
+                        <p>
+                            Montevideo, Uruguay
+                        </p>
+
+
+                        <a
+                            href="https://www.google.com/maps/search/?api=1&query=Pocitos%2C%20Montevideo%2C%20Uruguay"
+                            target="_blank"
+                            class="location-link"
+                        >
+
+                            Ver ubicación
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                    </article>
+
+
+
+                    <!-- CHUY -->
+
+                    <article class="location-card reveal">
+
+
+                        <div class="location-icon">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                        </div>
+
+
+                        <h3>
+                            Chuy
+                        </h3>
+
+
+                        <p>
+                            Rocha, Uruguay
+                        </p>
+
+
+                        <a
+                            href="https://www.google.com/maps/search/?api=1&query=Chuy%2C%20Rocha%2C%20Uruguay"
+                            target="_blank"
+                            class="location-link"
+                        >
+
+                            Ver ubicación
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             CONTACTO
+        ========================================== -->
+
+        <section
+            class="section contact"
+            id="contacto"
+        >
+
+            <div class="container">
+
+
+                <div class="contact-wrapper reveal">
+
+
+                    <div>
+
+
+                        <span class="eyebrow">
+
+                            Contactanos
+
+                        </span>
+
+
+                        <h2>
+
+                            Tu próxima
+                            cita empieza
+                            acá.
+
+                        </h2>
+
+
+                        <p>
+
+                            Escribinos para consultar
+                            disponibilidad, servicios
+                            o reservar tu lugar.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="contact-info">
+
+
+                        <!-- WHATSAPP -->
+
+                        <a
+                            href="https://wa.me/59898910775"
+                            target="_blank"
+                            class="contact-item"
+                        >
+
+                            <span>
+
+                                <i class="fa-brands fa-whatsapp"></i>
+
+                            </span>
+
+
+                            <div>
+
+                                <small>
+                                    WhatsApp
+                                </small>
+
+                                <strong>
+                                    098 910 775
+                                </strong>
+
+                            </div>
+
+                        </a>
+
+
+
+                        <!-- INSTAGRAM -->
+
+                        <a
+                            href="https://instagram.com/bellenzia.studio"
+                            target="_blank"
+                            class="contact-item"
+                        >
+
+                            <span>
+
+                                <i class="fa-brands fa-instagram"></i>
+
+                            </span>
+
+
+                            <div>
+
+                                <small>
+                                    Instagram
+                                </small>
+
+                                <strong>
+                                    @bellenzia.studio
+                                </strong>
+
+                            </div>
+
+                        </a>
+
+
+
+                        <!-- CTA -->
+
+                        <a
+                            href="https://wa.me/59898910775?text=Hola%20Bellenzia%20Studio%2C%20quiero%20consultar%20por%20los%20horarios%20disponibles."
+                            target="_blank"
+                            class="btn btn-promo"
+                        >
+
+                            Consultar disponibilidad
+
+                            <i class="fa-brands fa-whatsapp"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <div class="container">
+
+
+            <div class="footer-grid">
+
+
+                <!-- MARCA -->
+
+                <div>
+
+                    <div class="footer-logo">
+
+                        Bellenzia Studio
+
+                    </div>
+
+
+                    <p class="footer-description">
+
+                        Realzamos tu belleza natural
+                        con técnicas pensadas para vos.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- NAVEGACIÓN -->
+
+                <div>
+
+                    <h4>
+                        Navegación
+                    </h4>
+
+
+                    <ul>
+
+                        <li>
+                            <a href="#inicio">
+                                Inicio
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#servicios">
+                                Servicios
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#promociones">
+                                Promociones de Octubre
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#ubicaciones">
+                                Ubicaciones
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <!-- UBICACIONES -->
+
+                <div>
+
+                    <h4>
+                        Ubicaciones
+                    </h4>
+
+
+                    <ul>
+
+                        <li>
+                            <a href="#ubicaciones">
+                                Pocitos
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#ubicaciones">
+                                Chuy
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <!-- REDES -->
+
+                <div>
+
+                    <h4>
+                        Seguinos
+                    </h4>
+
+
+                    <ul>
+
+                        <li>
+
+                            <a
+                                href="https://instagram.com/bellenzia.studio"
+                                target="_blank"
+                            >
+
+                                Instagram
+
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a
+                                href="https://wa.me/59898910775"
+                                target="_blank"
+                            >
+
+                                WhatsApp
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="copyright">
+
+                © 2026 Bellenzia Studio ·
+                Todos los derechos reservados.
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================
+         WHATSAPP FLOTANTE
+    ========================================== -->
+
+    <a
+        href="https://wa.me/59898910775?text=Hola%20Bellenzia%20Studio%2C%20quiero%20agendar%20una%20cita."
+        target="_blank"
+        class="whatsapp-float"
+        aria-label="Contactar por WhatsApp"
+    >
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+    </a>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script>
+
+
+        /* =========================================
+           MENÚ MOBILE
+        ========================================== */
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+        const navMenu =
+            document.getElementById("navMenu");
+
+
+        menuToggle.addEventListener(
+            "click",
+            () => {
+
+                navMenu.classList.toggle("active");
+
+                const icon =
+                    menuToggle.querySelector("i");
+
+
+                if (
+                    navMenu.classList.contains("active")
+                ) {
+
+                    icon.classList.remove(
+                        "fa-bars"
+                    );
+
+                    icon.classList.add(
+                        "fa-xmark"
+                    );
+
+                } else {
+
+                    icon.classList.remove(
+                        "fa-xmark"
+                    );
+
+                    icon.classList.add(
+                        "fa-bars"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =========================================
+           CERRAR MENÚ AL HACER CLICK
+        ========================================== */
+
+        document
+            .querySelectorAll(".nav-menu a")
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    () => {
+
+                        navMenu.classList.remove(
+                            "active"
+                        );
+
+
+                        const icon =
+                            menuToggle.querySelector("i");
+
+
+                        icon.classList.remove(
+                            "fa-xmark"
+                        );
+
+
+                        icon.classList.add(
+                            "fa-bars"
+                        );
+
+                    }
+                );
+
+            });
+
+
+
+        /* =========================================
+           ANIMACIONES AL HACER SCROLL
+        ========================================== */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+
+        const observer =
+            new IntersectionObserver(
+
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry.target
+                                .classList
+                                .add("active");
+
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.12
+                }
+
+            );
+
+
+        revealElements.forEach(element => {
+
+            observer.observe(element);
+
+        });
+
+
+
+        /* =========================================
+           HEADER AL HACER SCROLL
+        ========================================== */
+
+        const header =
+            document.getElementById("header");
+
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                if (
+                    window.scrollY > 40
+                ) {
+
+                    header.style.boxShadow =
+                        "0 8px 25px rgba(72,52,39,0.08)";
+
+                } else {
+
+                    header.style.boxShadow =
+                        "none";
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
+```
