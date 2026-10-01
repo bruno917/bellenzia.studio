@@ -1,91 +1,77 @@
-```html
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="Bellenzia Studio — Lash Lifting, Perfilado y Laminado de Cejas en Pocitos y Chuy."
+    <title>Bellenzia Studio | Lash Lifting & Cejas</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     >
 
-    <title>Bellenzia Studio | Belleza Natural</title>
-
-
-    <!-- =========================================
-         GOOGLE FONTS
-    ========================================== -->
-
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
         rel="stylesheet"
     >
 
+    <script>
+        tailwind.config = {
 
-    <!-- =========================================
-         ICONOS
-    ========================================== -->
+            theme: {
 
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
+                extend: {
 
+                    colors: {
 
-    <!-- =========================================
-         CSS
-    ========================================== -->
+                        cream: '#F6EFD8',
+                        ivory: '#FFFDF8',
+                        beige: '#EEE6D8',
+                        taupe: '#B5A79A',
+                        brown: '#6F5B50',
+                        chocolate: '#3B2A25',
+                        dark: '#241A17',
+                        champagne: '#D7C19A',
+                        olive: '#74775E'
+
+                    },
+
+                    fontFamily: {
+
+                        title: ['Cormorant Garamond', 'serif'],
+                        sans: ['Montserrat', 'sans-serif']
+
+                    },
+
+                    boxShadow: {
+
+                        luxury: '0 25px 70px rgba(59,42,37,.12)',
+                        soft: '0 15px 40px rgba(59,42,37,.08)',
+                        card: '0 12px 35px rgba(59,42,37,.07)'
+
+                    }
+
+                }
+
+            }
+
+        }
+    </script>
+
 
     <style>
 
-        /* =========================================
-           VARIABLES
-        ========================================== */
-
-        :root {
-
-            --cream: #FDFBD4;
-            --cream-light: #fffef1;
-
-            --beige: #eee8da;
-
-            --taupe: #b8aa97;
-
-            --brown-light: #927b66;
-
-            --brown: #6b5240;
-
-            --brown-dark: #3d2c21;
-
-            --white: #ffffff;
-
-            --text-light: #77695e;
-
-            --border: #e8e0d5;
-
-            --shadow:
-                0 15px 40px rgba(72, 52, 39, 0.10);
-
-            --transition:
-                all 0.35s ease;
-        }
-
-
-        /* =========================================
-           RESET
-        ========================================== */
-
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
@@ -97,587 +83,366 @@
 
         body {
 
-            font-family: "Montserrat", sans-serif;
+            margin: 0;
 
-            color: var(--brown-dark);
+            font-family: 'Montserrat', sans-serif;
 
-            background: var(--cream-light);
+            background: #FFFDF8;
 
-            line-height: 1.6;
+            color: #3B2A25;
 
             overflow-x: hidden;
+
         }
 
 
-        a {
-            color: inherit;
-            text-decoration: none;
+        .font-title {
+
+            font-family: 'Cormorant Garamond', serif;
+
         }
 
 
-        button {
-            font-family: inherit;
+        /* ========================================
+           SELECTION
+        ======================================== */
+
+        ::selection {
+
+            background: #D7C19A;
+
+            color: #3B2A25;
+
         }
 
 
-        /* =========================================
-           CONTAINER
-        ========================================== */
+        /* ========================================
+           SCROLLBAR
+        ======================================== */
 
-        .container {
+        ::-webkit-scrollbar {
 
-            width: min(1180px, 92%);
+            width: 8px;
 
-            margin: auto;
+        }
+
+        ::-webkit-scrollbar-track {
+
+            background: #FFFDF8;
+
+        }
+
+        ::-webkit-scrollbar-thumb {
+
+            background: #B5A79A;
+
+            border-radius: 20px;
+
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+
+            background: #6F5B50;
+
         }
 
 
-        .section {
+        /* ========================================
+           REVEAL
+        ======================================== */
 
-            padding: 100px 0;
+        .reveal {
+
+            opacity: 0;
+
+            transform: translateY(30px);
+
+            transition:
+                opacity .9s ease,
+                transform .9s cubic-bezier(.16,1,.3,1);
+
         }
 
 
-        /* =========================================
-           SECTION HEADER
-        ========================================== */
+        .reveal.active {
 
-        .section-header {
+            opacity: 1;
 
-            max-width: 700px;
+            transform: translateY(0);
 
-            margin: 0 auto 55px;
-
-            text-align: center;
         }
 
 
-        .eyebrow {
-
-            display: inline-block;
-
-            margin-bottom: 12px;
-
-            color: var(--brown-light);
-
-            font-size: 10px;
-
-            font-weight: 600;
-
-            letter-spacing: 3px;
-
-            text-transform: uppercase;
-        }
-
-
-        .section-title {
-
-            color: var(--brown-dark);
-
-            font-family: "Cormorant Garamond", serif;
-
-            font-size: clamp(45px, 5vw, 65px);
-
-            font-weight: 500;
-
-            line-height: 0.95;
-        }
-
-
-        .section-description {
-
-            margin-top: 18px;
-
-            color: var(--text-light);
-
-            font-size: 13px;
-        }
-
-
-        /* =========================================
-           BOTONES
-        ========================================== */
-
-        .btn {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 9px;
-
-            padding: 15px 25px;
-
-            border-radius: 50px;
-
-            font-size: 11px;
-
-            font-weight: 600;
-
-            letter-spacing: 0.3px;
-
-            transition: var(--transition);
-
-            cursor: pointer;
-        }
-
-
-        .btn-primary {
-
-            background: var(--brown-dark);
-
-            color: var(--white);
-        }
-
-
-        .btn-primary:hover {
-
-            background: var(--brown);
-
-            transform: translateY(-3px);
-
-            box-shadow:
-                0 12px 25px rgba(57, 41, 31, 0.20);
-        }
-
-
-        .btn-outline {
-
-            border: 1px solid var(--brown);
-
-            color: var(--brown);
-        }
-
-
-        .btn-outline:hover {
-
-            background: var(--brown);
-
-            color: white;
-
-            transform: translateY(-3px);
-        }
-
-
-        .btn-promo {
-
-            background: var(--cream);
-
-            color: var(--brown-dark);
-        }
-
-
-        .btn-promo:hover {
-
-            background: white;
-
-            transform: translateY(-3px);
-        }
-
-
-        /* =========================================
-           HEADER
-        ========================================== */
-
-        header {
-
-            position: fixed;
-
-            top: 0;
-
-            left: 0;
-
-            width: 100%;
-
-            z-index: 1000;
-
-            background:
-                rgba(255, 254, 241, 0.92);
-
-            backdrop-filter: blur(15px);
-
-            border-bottom:
-                1px solid rgba(99, 76, 59, 0.08);
-
-            transition: var(--transition);
-        }
-
+        /* ========================================
+           NAVBAR
+        ======================================== */
 
         .navbar {
 
-            height: 78px;
+            background: rgba(255,253,248,.78);
 
-            display: flex;
+            backdrop-filter: blur(22px);
 
-            align-items: center;
+            -webkit-backdrop-filter: blur(22px);
 
-            justify-content: space-between;
+            border-bottom: 1px solid rgba(59,42,37,.07);
+
+            transition:
+
+                background .3s ease,
+
+                box-shadow .3s ease;
+
         }
 
 
-        /* =========================================
-           LOGO
-        ========================================== */
-
-        .logo {
-
-            color: var(--brown-dark);
-
-            font-family: "Cormorant Garamond", serif;
-
-            font-size: 31px;
-
-            font-weight: 600;
-
-            line-height: 0.8;
-        }
-
-
-        .logo span {
-
-            display: block;
-
-            margin-top: 7px;
-
-            color: var(--brown-light);
-
-            font-family: "Montserrat", sans-serif;
-
-            font-size: 7px;
-
-            font-weight: 500;
-
-            letter-spacing: 4px;
-
-            text-align: center;
-        }
-
-
-        /* =========================================
-           MENU
-        ========================================== */
-
-        .nav-menu {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 28px;
-
-            list-style: none;
-        }
-
-
-        .nav-menu a {
+        .nav-link {
 
             position: relative;
 
-            color: var(--brown-dark);
+            color: #3B2A25;
 
-            font-size: 10px;
+            transition: color .3s ease;
 
-            font-weight: 500;
         }
 
 
-        .nav-menu a::after {
+        .nav-link:hover {
+
+            color: #6F5B50;
+
+        }
+
+
+        .nav-link::after {
 
             content: "";
 
             position: absolute;
 
-            bottom: -6px;
-
             left: 0;
+
+            bottom: -8px;
 
             width: 0;
 
             height: 1px;
 
-            background: var(--brown);
+            background: #6F5B50;
 
-            transition: var(--transition);
+            transition: width .3s ease;
+
         }
 
 
-        .nav-menu a:hover::after {
+        .nav-link:hover::after {
 
             width: 100%;
+
         }
 
 
-        .menu-toggle {
-
-            display: none;
-
-            border: none;
-
-            background: none;
-
-            color: var(--brown-dark);
-
-            font-size: 24px;
-
-            cursor: pointer;
-        }
-
-
-        /* =========================================
-           HERO
-        ========================================== */
-
-        .hero {
-
-            min-height: 100vh;
-
-            padding-top: 100px;
-
-            display: flex;
-
-            align-items: center;
-
-            background:
-
-                radial-gradient(
-                    circle at 85% 20%,
-                    #eee8da 0%,
-                    transparent 32%
-                ),
-
-                var(--cream-light);
-        }
-
-
-        .hero-grid {
-
-            display: grid;
-
-            grid-template-columns: 1fr 0.9fr;
-
-            align-items: center;
-
-            gap: 70px;
-        }
-
-
-        .hero-content {
-
-            animation:
-                fadeUp 0.8s ease;
-        }
-
-
-        .hero-small {
-
-            margin-bottom: 20px;
-
-            color: var(--brown-light);
-
-            font-size: 10px;
-
-            font-weight: 600;
-
-            letter-spacing: 3px;
-
-            text-transform: uppercase;
-        }
-
-
-        .hero h1 {
-
-            max-width: 720px;
-
-            color: var(--brown-dark);
-
-            font-family: "Cormorant Garamond", serif;
-
-            font-size: clamp(58px, 7vw, 92px);
-
-            font-weight: 500;
-
-            line-height: 0.88;
-        }
-
-
-        .hero h1 em {
-
-            color: var(--brown-light);
-
-            font-style: italic;
-        }
-
-
-        .hero-description {
-
-            max-width: 550px;
-
-            margin: 30px 0;
-
-            color: var(--text-light);
-
-            font-size: 14px;
-        }
-
-
-        .hero-buttons {
-
-            display: flex;
-
-            gap: 12px;
-
-            flex-wrap: wrap;
-        }
-
-
-        /* =========================================
-           HERO VISUAL
-        ========================================== */
-
-        .hero-visual {
-
-            position: relative;
-
-            height: 580px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-        }
-
-
-        .hero-circle {
-
-            position: relative;
-
-            width: 430px;
-
-            height: 430px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #eee8da,
-                    #d6c6b4
-                );
-
-            box-shadow: var(--shadow);
-        }
-
-
-        .hero-circle::before {
-
-            content: "BELLE";
-
-            position: absolute;
-
-            color:
-                rgba(255, 255, 255, 0.38);
-
-            font-family:
-                "Cormorant Garamond", serif;
-
-            font-size: 125px;
-        }
-
-
-        .beauty-card {
-
-            position: absolute;
-
-            left: 0;
-
-            bottom: 60px;
-
-            padding: 19px 24px;
-
-            border-radius: 15px;
-
-            background:
-                rgba(255,255,255,0.88);
-
-            backdrop-filter: blur(10px);
-
-            box-shadow: var(--shadow);
-        }
-
-
-        .beauty-card small {
-
-            display: block;
-
-            margin-bottom: 2px;
-
-            color: var(--brown-light);
-
-            font-size: 8px;
-
-            letter-spacing: 2px;
-
-            text-transform: uppercase;
-        }
-
-
-        .beauty-card strong {
-
-            color: var(--brown-dark);
-
-            font-family:
-                "Cormorant Garamond", serif;
-
-            font-size: 24px;
-        }
-
-
-        /* =========================================
-           SERVICIOS
-        ========================================== */
-
-        .services {
-
-            background: var(--white);
-        }
-
-
-        .services-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 22px;
-        }
-
-
-        .service-card {
+        /* ========================================
+           BUTTONS
+        ======================================== */
+
+        .luxury-btn {
 
             position: relative;
 
             overflow: hidden;
 
-            padding: 38px 30px;
+            transition:
 
-            border:
-                1px solid var(--border);
+                transform .35s ease,
 
-            border-radius: 20px;
+                box-shadow .35s ease,
 
-            background: white;
+                background .35s ease;
 
-            transition: var(--transition);
+        }
+
+
+        .luxury-btn::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background: rgba(255,255,255,.08);
+
+            transform: translateX(-100%);
+
+            transition: transform .5s ease;
+
+        }
+
+
+        .luxury-btn:hover::before {
+
+            transform: translateX(0);
+
+        }
+
+
+        .luxury-btn:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow: 0 15px 35px rgba(59,42,37,.16);
+
+        }
+
+
+        .luxury-btn span,
+        .luxury-btn i {
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+        /* ========================================
+           HERO
+        ======================================== */
+
+        .hero-section {
+
+            position: relative;
+
+            isolation: isolate;
+
+        }
+
+
+        .hero-background {
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: -2;
+
+            background-image:
+
+                linear-gradient(
+
+                    90deg,
+
+                    rgba(255,253,248,.98) 0%,
+
+                    rgba(255,253,248,.95) 30%,
+
+                    rgba(255,253,248,.82) 58%,
+
+                    rgba(255,253,248,.72) 100%
+
+                ),
+
+                url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2200&q=85');
+
+            background-size: cover;
+
+            background-position: center;
+
+        }
+
+
+        .hero-background::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+
+                linear-gradient(
+
+                    to bottom,
+
+                    rgba(255,253,248,.2),
+
+                    rgba(255,253,248,.05) 50%,
+
+                    rgba(255,253,248,.85) 100%
+
+                );
+
+        }
+
+
+        .hero-glow {
+
+            position: absolute;
+
+            width: 500px;
+
+            height: 500px;
+
+            border-radius: 50%;
+
+            background: rgba(215,193,154,.18);
+
+            filter: blur(90px);
+
+            top: 15%;
+
+            right: 5%;
+
+            z-index: -1;
+
+        }
+
+
+        .hero-line {
+
+            position: absolute;
+
+            left: 7%;
+
+            top: 20%;
+
+            width: 1px;
+
+            height: 55%;
+
+            background: linear-gradient(
+
+                to bottom,
+
+                transparent,
+
+                rgba(111,91,80,.25),
+
+                transparent
+
+            );
+
+        }
+
+
+        /* ========================================
+           SERVICE CARDS
+        ======================================== */
+
+        .service-card {
+
+            position: relative;
+
+            transition:
+
+                transform .45s ease,
+
+                box-shadow .45s ease,
+
+                border-color .45s ease;
+
         }
 
 
@@ -687,1025 +452,334 @@
 
             position: absolute;
 
-            top: 0;
+            inset: 0;
 
-            left: 0;
+            background:
 
-            width: 100%;
+                radial-gradient(
 
-            height: 4px;
+                    circle at top right,
 
-            background: var(--cream);
+                    rgba(215,193,154,.16),
 
-            transform:
-                scaleX(0);
+                    transparent 35%
 
-            transform-origin:
-                left;
+                );
 
-            transition: var(--transition);
+            opacity: 0;
+
+            transition: opacity .45s ease;
+
+            pointer-events: none;
+
         }
 
 
         .service-card:hover {
 
-            transform:
-                translateY(-8px);
+            transform: translateY(-10px);
 
-            box-shadow:
-                var(--shadow);
+            box-shadow: 0 25px 60px rgba(59,42,37,.12);
+
+            border-color: rgba(111,91,80,.25);
+
         }
 
 
         .service-card:hover::before {
 
-            transform:
-                scaleX(1);
+            opacity: 1;
+
         }
 
 
         .service-number {
 
-            margin-bottom: 20px;
+            transition:
 
-            color: var(--taupe);
+                background .35s ease,
 
-            font-family:
-                "Cormorant Garamond", serif;
+                color .35s ease,
 
-            font-size: 25px;
+                border-color .35s ease;
+
         }
 
 
-        .service-card h3 {
+        .service-card:hover .service-number {
 
-            margin-bottom: 12px;
+            background: #3B2A25;
 
-            color: var(--brown-dark);
+            color: #F6EFD8;
 
-            font-family:
-                "Cormorant Garamond", serif;
+            border-color: #3B2A25;
 
-            font-size: 30px;
-
-            font-weight: 600;
-
-            line-height: 1.05;
         }
 
 
-        .service-card p {
-
-            min-height: 65px;
-
-            color: var(--text-light);
-
-            font-size: 12px;
-        }
-
-
-        .price {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            margin-top: 25px;
-
-            padding-top: 20px;
-
-            border-top:
-                1px solid var(--border);
-        }
-
-
-        .price strong {
-
-            color: var(--brown);
-
-            font-size: 22px;
-        }
-
-
-        .price span {
-
-            color: var(--brown-light);
-
-            font-size: 8px;
-
-            letter-spacing: 1px;
-
-            text-transform: uppercase;
-        }
-
-
-        /* =========================================
-           PROMOCIONES DE OCTUBRE
-        ========================================== */
-
-        .promotions {
-
-            position: relative;
-
-            overflow: hidden;
-
-            color: white;
-
-            background: var(--brown-dark);
-        }
-
-
-        .promotions::before {
-
-            content: "OCTUBRE";
-
-            position: absolute;
-
-            top: 50px;
-
-            right: -70px;
-
-            color:
-                rgba(255,255,255,0.035);
-
-            font-family:
-                "Cormorant Garamond", serif;
-
-            font-size: 190px;
-
-            white-space: nowrap;
-        }
-
-
-        .promotions .section-title {
-
-            color: white;
-        }
-
-
-        .promotions .section-description {
-
-            color: #cbbdb0;
-        }
-
-
-        .promo-badge {
-
-            display: inline-block;
-
-            margin-bottom: 17px;
-
-            padding: 7px 15px;
-
-            border-radius: 50px;
-
-            color: var(--brown-dark);
-
-            background: var(--cream);
-
-            font-size: 8px;
-
-            font-weight: 700;
-
-            letter-spacing: 2px;
-
-            text-transform: uppercase;
-        }
-
-
-        .promo-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 20px;
-        }
-
+        /* ========================================
+           PROMO
+        ======================================== */
 
         .promo-card {
 
             position: relative;
 
-            padding: 35px 28px;
+            overflow: hidden;
 
-            border:
-                1px solid rgba(255,255,255,0.13);
+            transition:
 
-            border-radius: 20px;
+                transform .45s ease,
 
-            background:
-                rgba(255,255,255,0.07);
+                box-shadow .45s ease;
 
-            transition: var(--transition);
+        }
+
+
+        .promo-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 260px;
+
+            height: 260px;
+
+            border-radius: 50%;
+
+            background: rgba(215,193,154,.08);
+
+            top: -140px;
+
+            right: -120px;
+
+            transition: transform .5s ease;
+
+        }
+
+
+        .promo-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 150px;
+
+            height: 150px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(215,193,154,.12);
+
+            bottom: -80px;
+
+            left: -60px;
+
         }
 
 
         .promo-card:hover {
 
-            transform:
-                translateY(-7px);
+            transform: translateY(-8px);
 
-            border-color:
-                rgba(253,251,212,0.7);
+            box-shadow: 0 30px 70px rgba(0,0,0,.28);
 
-            background:
-                rgba(255,255,255,0.11);
         }
 
 
-        .promo-label {
+        .promo-card:hover::before {
 
-            display: inline-block;
+            transform: scale(1.2);
 
-            margin-bottom: 18px;
-
-            padding: 6px 10px;
-
-            border:
-                1px solid
-                rgba(253,251,212,0.35);
-
-            border-radius: 50px;
-
-            color: var(--cream);
-
-            font-size: 8px;
-
-            font-weight: 700;
-
-            letter-spacing: 2px;
-
-            text-transform: uppercase;
         }
 
 
-        .promo-card h3 {
-
-            margin-bottom: 25px;
-
-            color: white;
-
-            font-family:
-                "Cormorant Garamond", serif;
-
-            font-size: 30px;
-
-            font-weight: 600;
-
-            line-height: 1.05;
-        }
-
-
-        .promo-price {
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 2px;
-        }
-
-
-        .old-price {
-
-            color: #aa9b8c;
-
-            font-size: 14px;
-
-            text-decoration: line-through;
-        }
-
-
-        .new-price {
-
-            color: var(--cream);
-
-            font-family:
-                "Cormorant Garamond", serif;
-
-            font-size: 50px;
-
-            line-height: 1;
-        }
-
-
-        .saving {
-
-            margin:
-                10px 0 25px;
-
-            color: #c8b9aa;
-
-            font-size: 9px;
-
-            letter-spacing: 1.5px;
-
-            text-transform: uppercase;
-        }
-
-
-        /* =========================================
-           UBICACIONES
-        ========================================== */
-
-        .locations {
-
-            background: var(--beige);
-        }
-
-
-        .locations-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap: 25px;
-        }
-
+        /* ========================================
+           LOCATION
+        ======================================== */
 
         .location-card {
 
-            padding: 45px;
+            position: relative;
 
-            border-radius: 22px;
+            overflow: hidden;
 
-            background: white;
+            transition:
 
-            box-shadow:
-                0 10px 30px
-                rgba(72,52,39,0.06);
+                transform .4s ease,
 
-            transition: var(--transition);
+                box-shadow .4s ease;
+
+        }
+
+
+        .location-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+
+            height: 180px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(111,91,80,.08);
+
+            right: -90px;
+
+            bottom: -90px;
+
         }
 
 
         .location-card:hover {
 
-            transform:
-                translateY(-5px);
+            transform: translateY(-7px);
 
-            box-shadow: var(--shadow);
+            box-shadow: 0 25px 55px rgba(59,42,37,.1);
+
         }
 
 
-        .location-icon {
+        /* ========================================
+           INSTAGRAM
+        ======================================== */
 
-            width: 48px;
+        .instagram-btn {
 
-            height: 48px;
+            transition:
 
-            display: flex;
+                transform .3s ease,
 
-            align-items: center;
+                background .3s ease;
 
-            justify-content: center;
-
-            margin-bottom: 20px;
-
-            border-radius: 50%;
-
-            color: var(--brown);
-
-            background: var(--cream);
-
-            font-size: 18px;
         }
 
 
-        .location-card h3 {
+        .instagram-btn:hover {
 
-            margin-bottom: 5px;
+            transform: translateY(-3px);
 
-            color: var(--brown-dark);
+            background: #F6EFD8;
 
-            font-family:
-                "Cormorant Garamond", serif;
-
-            font-size: 38px;
-
-            font-weight: 600;
         }
 
 
-        .location-card p {
-
-            margin-bottom: 20px;
-
-            color: var(--text-light);
-
-            font-size: 13px;
-        }
-
-
-        .location-link {
-
-            color: var(--brown);
-
-            font-size: 10px;
-
-            font-weight: 600;
-
-            letter-spacing: 1px;
-
-            text-transform: uppercase;
-        }
-
-
-        /* =========================================
-           CONTACTO
-        ========================================== */
-
-        .contact {
-
-            background: var(--cream);
-        }
-
-
-        .contact-wrapper {
-
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 60px;
-
-            align-items: center;
-
-            padding: 70px;
-
-            border-radius: 30px;
-
-            color: white;
-
-            background: var(--brown-dark);
-        }
-
-
-        .contact h2 {
-
-            color: white;
-
-            font-family:
-                "Cormorant Garamond", serif;
-
-            font-size:
-                clamp(45px, 5vw, 68px);
-
-            font-weight: 500;
-
-            line-height: 0.9;
-        }
-
-
-        .contact p {
-
-            margin-top: 20px;
-
-            color: #c9bbae;
-
-            font-size: 13px;
-        }
-
-
-        .contact-info {
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 15px;
-        }
-
-
-        .contact-item {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 15px;
-
-            padding: 17px 20px;
-
-            border-radius: 12px;
-
-            background:
-                rgba(255,255,255,0.06);
-
-            transition: var(--transition);
-        }
-
-
-        .contact-item:hover {
-
-            background:
-                rgba(255,255,255,0.11);
-
-            transform:
-                translateX(3px);
-        }
-
-
-        .contact-item > span {
-
-            width: 40px;
-
-            height: 40px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            flex-shrink: 0;
-
-            border-radius: 50%;
-
-            color: var(--brown-dark);
-
-            background: var(--cream);
-        }
-
-
-        .contact-item small {
-
-            display: block;
-
-            margin-bottom: 2px;
-
-            color: #a9998a;
-
-            font-size: 8px;
-
-            letter-spacing: 1px;
-
-            text-transform: uppercase;
-        }
-
-
-        .contact-item strong {
-
-            color: white;
-
-            font-size: 12px;
-        }
-
-
-        /* =========================================
-           FOOTER
-        ========================================== */
-
-        footer {
-
-            padding:
-                50px 0 25px;
-
-            color: white;
-
-            background: #2b1e17;
-        }
-
-
-        .footer-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                1.5fr 1fr 1fr 1fr;
-
-            gap: 40px;
-
-            padding-bottom: 35px;
-        }
-
-
-        .footer-logo {
-
-            color: white;
-
-            font-family:
-                "Cormorant Garamond", serif;
-
-            font-size: 36px;
-        }
-
-
-        .footer-description {
-
-            max-width: 280px;
-
-            margin-top: 10px;
-
-            color: #a99b90;
-
-            font-size: 10px;
-        }
-
-
-        footer h4 {
-
-            margin-bottom: 17px;
-
-            color: white;
-
-            font-size: 9px;
-
-            letter-spacing: 2px;
-
-            text-transform: uppercase;
-        }
-
-
-        footer ul {
-
-            list-style: none;
-        }
-
-
-        footer li {
-
-            margin-bottom: 9px;
-        }
-
-
-        footer li a {
-
-            color: #a99b90;
-
-            font-size: 10px;
-
-            transition: var(--transition);
-        }
-
-
-        footer li a:hover {
-
-            color: white;
-        }
-
-
-        .copyright {
-
-            padding-top: 20px;
-
-            border-top:
-                1px solid
-                rgba(255,255,255,0.08);
-
-            color: #80736a;
-
-            font-size: 8px;
-
-            text-align: center;
-        }
-
-
-        /* =========================================
+        /* ========================================
            WHATSAPP
-        ========================================== */
+        ======================================== */
 
         .whatsapp-float {
 
-            position: fixed;
+            animation: pulseWhatsapp 3s infinite;
 
-            right: 22px;
+            transition: transform .3s ease;
 
-            bottom: 22px;
-
-            z-index: 999;
-
-            width: 60px;
-
-            height: 60px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-radius: 50%;
-
-            color: white;
-
-            background: #25D366;
-
-            font-size: 26px;
-
-            box-shadow:
-                0 8px 25px
-                rgba(0,0,0,0.18);
-
-            transition: var(--transition);
         }
 
 
         .whatsapp-float:hover {
 
-            transform:
-                scale(1.08)
-                translateY(-3px);
+            transform: scale(1.08);
+
         }
 
 
-        /* =========================================
-           ANIMACIONES
-        ========================================== */
+        @keyframes pulseWhatsapp {
 
-        .reveal {
-
-            opacity: 0;
-
-            transform:
-                translateY(30px);
-
-            transition:
-                opacity 0.7s ease,
-                transform 0.7s ease;
-        }
-
-
-        .reveal.active {
-
-            opacity: 1;
-
-            transform:
-                translateY(0);
-        }
-
-
-        @keyframes fadeUp {
-
-            from {
-
-                opacity: 0;
-
-                transform:
-                    translateY(25px);
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform:
-                    translateY(0);
-            }
-        }
-
-
-        /* =========================================
-           RESPONSIVE TABLET
-        ========================================== */
-
-        @media (max-width: 900px) {
-
-            .nav-menu {
-
-                position: absolute;
-
-                top: 78px;
-
-                left: 0;
-
-                width: 100%;
-
-                display: flex;
-
-                flex-direction: column;
-
-                gap: 20px;
-
-                padding: 30px;
-
-                background: var(--cream-light);
+            0%, 100% {
 
                 box-shadow:
-                    0 15px 30px
-                    rgba(0,0,0,0.08);
 
-                transform:
-                    translateY(-150%);
+                    0 0 0 0 rgba(37,211,102,.25);
 
-                transition: var(--transition);
+            }
+
+            50% {
+
+                box-shadow:
+
+                    0 0 0 13px rgba(37,211,102,0);
+
+            }
+
+        }
+
+
+        /* ========================================
+           MOBILE
+        ======================================== */
+
+        @media(max-width: 768px) {
+
+            .hero-background {
+
+                background-position:
+
+                    65% center;
+
             }
 
 
-            .nav-menu.active {
+            .hero-background::after {
 
-                transform:
-                    translateY(0);
+                background:
+
+                    linear-gradient(
+
+                        to bottom,
+
+                        rgba(255,253,248,.92),
+
+                        rgba(255,253,248,.84) 55%,
+
+                        rgba(255,253,248,.96)
+
+                    );
+
             }
 
 
-            .menu-toggle {
-
-                display: block;
-            }
-
-
-            .navbar > .btn {
-
-                display: none;
-            }
-
-
-            .hero-grid {
-
-                grid-template-columns: 1fr;
-
-                text-align: center;
-            }
-
-
-            .hero-description {
-
-                margin-left: auto;
-
-                margin-right: auto;
-            }
-
-
-            .hero-buttons {
-
-                justify-content: center;
-            }
-
-
-            .hero-visual {
-
-                height: 400px;
-            }
-
-
-            .hero-circle {
+            .hero-glow {
 
                 width: 300px;
 
                 height: 300px;
+
             }
 
 
-            .hero-circle::before {
+            .hero-line {
 
-                font-size: 80px;
+                display: none;
+
             }
 
-
-            .beauty-card {
-
-                bottom: 10px;
-
-                left: 50%;
-
-                transform:
-                    translateX(-50%);
-            }
-
-
-            .services-grid,
-            .promo-grid {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-
-            .contact-wrapper {
-
-                grid-template-columns: 1fr;
-
-                padding: 50px 35px;
-            }
-
-
-            .footer-grid {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
         }
 
 
-        /* =========================================
-           RESPONSIVE MOBILE
-        ========================================== */
+        /* ========================================
+           REDUCED MOTION
+        ======================================== */
 
-        @media (max-width: 600px) {
+        @media(prefers-reduced-motion: reduce) {
 
-            .section {
+            * {
 
-                padding: 75px 0;
+                scroll-behavior: auto !important;
+
+                animation-duration: .01ms !important;
+
+                animation-iteration-count: 1 !important;
+
+                transition-duration: .01ms !important;
+
             }
 
-
-            .hero {
-
-                padding-top: 120px;
-            }
-
-
-            .hero h1 {
-
-                font-size: 55px;
-            }
-
-
-            .hero-description {
-
-                font-size: 13px;
-            }
-
-
-            .hero-visual {
-
-                height: 340px;
-            }
-
-
-            .hero-circle {
-
-                width: 250px;
-
-                height: 250px;
-            }
-
-
-            .hero-circle::before {
-
-                font-size: 65px;
-            }
-
-
-            .services-grid,
-            .promo-grid,
-            .locations-grid {
-
-                grid-template-columns: 1fr;
-            }
-
-
-            .service-card {
-
-                padding: 32px 25px;
-            }
-
-
-            .promo-card {
-
-                padding: 32px 25px;
-            }
-
-
-            .location-card {
-
-                padding: 30px;
-            }
-
-
-            .contact-wrapper {
-
-                padding: 40px 25px;
-
-                border-radius: 22px;
-            }
-
-
-            .footer-grid {
-
-                grid-template-columns: 1fr;
-
-                text-align: center;
-            }
-
-
-            .footer-description {
-
-                margin-left: auto;
-
-                margin-right: auto;
-            }
-
-
-            .whatsapp-float {
-
-                right: 15px;
-
-                bottom: 15px;
-
-                width: 55px;
-
-                height: 55px;
-
-                font-size: 23px;
-            }
         }
 
     </style>
@@ -1713,1167 +787,1460 @@
 </head>
 
 
-<body>
+<body class="antialiased">
 
 
-    <!-- =========================================
-         HEADER
-    ========================================== -->
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
 
-    <header id="header">
+<header
+    id="navbar"
+    class="navbar fixed top-0 left-0 w-full z-50"
+>
 
-        <div class="container navbar">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+        <div class="h-[82px] flex items-center justify-between">
 
 
-            <a href="#inicio" class="logo">
+            <!-- LOGO -->
 
-                Bellenzia
+            <a
+                href="#inicio"
+                class="leading-none group"
+            >
+
+                <div
+                    class="font-title text-[30px] tracking-[.16em] text-chocolate transition-transform duration-300 group-hover:scale-[1.02]"
+                >
+
+                    BELLENZIA
+
+                </div>
+
+                <div
+                    class="text-[8px] tracking-[.5em] uppercase text-taupe text-center mt-1"
+                >
+
+                    Studio
+
+                </div>
+
+            </a>
+
+
+            <!-- DESKTOP MENU -->
+
+            <nav class="hidden md:flex items-center gap-9">
+
+                <a
+                    href="#inicio"
+                    class="nav-link text-[9px] uppercase tracking-[.28em]"
+                >
+                    Inicio
+                </a>
+
+                <a
+                    href="#servicios"
+                    class="nav-link text-[9px] uppercase tracking-[.28em]"
+                >
+                    Servicios
+                </a>
+
+                <a
+                    href="#promociones"
+                    class="nav-link text-[9px] uppercase tracking-[.28em]"
+                >
+                    Promociones
+                </a>
+
+                <a
+                    href="#ubicaciones"
+                    class="nav-link text-[9px] uppercase tracking-[.28em]"
+                >
+                    Ubicaciones
+                </a>
+
+                <a
+                    href="#contacto"
+                    class="nav-link text-[9px] uppercase tracking-[.28em]"
+                >
+                    Contacto
+                </a>
+
+            </nav>
+
+
+            <!-- CTA -->
+
+            <a
+                href="https://wa.me/59898910775"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hidden md:flex luxury-btn bg-chocolate text-cream px-6 py-3.5 items-center gap-2 text-[9px] uppercase tracking-[.22em]"
+            >
+
+                <i class="fa-brands fa-whatsapp"></i>
 
                 <span>
-                    STUDIO
+                    Agendar cita
                 </span>
 
             </a>
 
 
-            <nav>
-
-                <ul class="nav-menu" id="navMenu">
-
-                    <li>
-                        <a href="#inicio">
-                            Inicio
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#servicios">
-                            Servicios
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#promociones">
-                            Promociones de Octubre
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#ubicaciones">
-                            Ubicaciones
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#contacto">
-                            Contacto
-                        </a>
-                    </li>
-
-                </ul>
-
-            </nav>
-
-
-            <a
-                href="https://wa.me/59898910775?text=Hola%20Bellenzia%20Studio%2C%20quiero%20agendar%20una%20cita."
-                target="_blank"
-                class="btn btn-primary"
-            >
-
-                Agendar Cita
-
-                <i class="fa-brands fa-whatsapp"></i>
-
-            </a>
-
+            <!-- MOBILE BUTTON -->
 
             <button
-                class="menu-toggle"
-                id="menuToggle"
+                id="mobile-menu-btn"
                 aria-label="Abrir menú"
+                class="md:hidden text-chocolate text-xl w-10 h-10 flex items-center justify-center"
             >
 
-                <i class="fa-solid fa-bars"></i>
+                <i
+                    id="menu-icon"
+                    class="fa-solid fa-bars"
+                ></i>
 
             </button>
 
         </div>
 
-    </header>
+    </div>
+
+
+    <!-- MOBILE MENU -->
+
+    <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-ivory/95 backdrop-blur-xl border-t border-b border-chocolate/10 px-6 py-7"
+    >
+
+        <div class="flex flex-col gap-5">
+
+            <a
+                href="#inicio"
+                class="mobile-link text-[10px] uppercase tracking-[.25em]"
+            >
+                Inicio
+            </a>
+
+            <a
+                href="#servicios"
+                class="mobile-link text-[10px] uppercase tracking-[.25em]"
+            >
+                Servicios
+            </a>
+
+            <a
+                href="#promociones"
+                class="mobile-link text-[10px] uppercase tracking-[.25em]"
+            >
+                Promociones
+            </a>
+
+            <a
+                href="#ubicaciones"
+                class="mobile-link text-[10px] uppercase tracking-[.25em]"
+            >
+                Ubicaciones
+            </a>
+
+            <a
+                href="#contacto"
+                class="mobile-link text-[10px] uppercase tracking-[.25em]"
+            >
+                Contacto
+            </a>
+
+            <a
+                href="https://wa.me/59898910775"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-chocolate text-cream text-center py-4 text-[10px] uppercase tracking-[.22em] mt-2"
+            >
+
+                <i class="fa-brands fa-whatsapp mr-2"></i>
+
+                Agendar cita
+
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
 
 
 
-    <!-- =========================================
-         HERO
-    ========================================== -->
+<!-- =========================================================
+     HERO
+========================================================= -->
 
-    <main>
-
-
-        <section class="hero" id="inicio">
-
-            <div class="container hero-grid">
+<section
+    id="inicio"
+    class="hero-section min-h-screen pt-32 pb-20 lg:pt-36 flex items-center"
+>
 
 
-                <div class="hero-content">
+    <!-- NATURAL BACKGROUND -->
+
+    <div class="hero-background"></div>
+
+    <div class="hero-glow"></div>
+
+    <div class="hero-line"></div>
 
 
-                    <div class="hero-small">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 w-full relative z-10">
 
-                        Beauty Studio · Montevideo & Chuy
-
-                    </div>
+        <div class="max-w-3xl reveal">
 
 
-                    <h1>
+            <!-- EYEBROW -->
 
-                        Realza tu mirada
+            <div class="flex items-center gap-4 mb-8">
 
-                        <em>
-                            y resalta
-                        </em>
+                <span class="w-12 h-px bg-champagne"></span>
 
-                        tu belleza natural.
-
-                    </h1>
-
-
-                    <p class="hero-description">
-
-                        Especialistas en Lash Lifting,
-                        Perfilado y Laminado de Cejas
-                        en Pocitos y Chuy.
-
-                    </p>
-
-
-                    <div class="hero-buttons">
-
-
-                        <a
-                            href="https://wa.me/59898910775?text=Hola%20Bellenzia%20Studio%2C%20quiero%20reservar%20un%20lugar."
-                            target="_blank"
-                            class="btn btn-primary"
-                        >
-
-                            Reservar por WhatsApp
-
-                            <i class="fa-brands fa-whatsapp"></i>
-
-                        </a>
-
-
-                        <a
-                            href="#servicios"
-                            class="btn btn-outline"
-                        >
-
-                            Ver servicios
-
-                            <i class="fa-solid fa-arrow-down"></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="hero-visual">
-
-
-                    <div class="hero-circle">
-                    </div>
-
-
-                    <div class="beauty-card">
-
-                        <small>
-                            Tu momento de belleza
-                        </small>
-
-                        <strong>
-                            Sentite increíble.
-                        </strong>
-
-                    </div>
-
-                </div>
+                <span
+                    class="text-[9px] uppercase tracking-[.4em] text-brown font-medium"
+                >
+                    Beauty Studio · Belleza Natural
+                </span>
 
             </div>
 
-        </section>
+
+            <!-- TITLE -->
+
+            <h1
+                class="font-title text-[58px] sm:text-7xl lg:text-[100px] leading-[.84] font-light text-chocolate"
+            >
+
+                Tu mirada.
+
+                <br>
+
+                <span class="italic text-brown">
+                    Tu esencia.
+                </span>
+
+            </h1>
 
 
+            <!-- DESCRIPTION -->
 
-        <!-- =========================================
-             SERVICIOS Y PRECIOS
-        ========================================== -->
+            <p
+                class="mt-9 max-w-xl text-sm sm:text-[15px] leading-7 text-chocolate/65 font-light"
+            >
 
-        <section
-            class="section services"
-            id="servicios"
-        >
+                Realzamos tu belleza natural mediante técnicas
+                profesionales de Lash Lifting y diseño de cejas,
+                respetando tu esencia y resaltando tus facciones.
 
-            <div class="container">
+            </p>
 
 
-                <div class="section-header reveal">
+            <!-- CTA -->
 
-                    <span class="eyebrow">
-                        Servicios
+            <div class="mt-10 flex flex-col sm:flex-row gap-4">
+
+                <a
+                    href="https://wa.me/59898910775?text=Hola%20Bellenzia%20Studio%2C%20quiero%20agendar%20una%20cita"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="luxury-btn bg-chocolate text-cream px-8 py-4 text-center text-[9px] uppercase tracking-[.25em]"
+                >
+
+                    <i class="fa-brands fa-whatsapp mr-2"></i>
+
+                    <span>
+                        Reservar mi cita
                     </span>
 
-                    <h2 class="section-title">
-                        Nuestros servicios.
-                    </h2>
+                </a>
 
-                    <p class="section-description">
 
-                        Servicios pensados para realzar
-                        tu belleza natural y destacar
-                        tu mirada.
+                <a
+                    href="#servicios"
+                    class="luxury-btn bg-ivory/65 backdrop-blur-sm border border-chocolate/20 px-8 py-4 text-center text-[9px] uppercase tracking-[.25em]"
+                >
 
-                    </p>
-
-                </div>
-
-
-                <div class="services-grid">
-
-
-                    <!-- SERVICIO 1 -->
-
-                    <article class="service-card reveal">
-
-                        <div class="service-number">
-                            01
-                        </div>
-
-                        <h3>
-                            Lash Lifting
-                            + Serum
-                        </h3>
-
-                        <p>
-
-                            Realza y curva tus pestañas
-                            naturales para conseguir
-                            una mirada más abierta
-                            y definida.
-
-                        </p>
-
-
-                        <div class="price">
-
-                            <strong>
-                                $1.700
-                            </strong>
-
-                            <span>
-                                Precio habitual
-                            </span>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <!-- SERVICIO 2 -->
-
-                    <article class="service-card reveal">
-
-                        <div class="service-number">
-                            02
-                        </div>
-
-                        <h3>
-                            Perfilado
-                            + Laminado de Cejas
-                        </h3>
-
-                        <p>
-
-                            Diseño, definición y laminado
-                            para unas cejas ordenadas,
-                            naturales y armoniosas.
-
-                        </p>
-
-
-                        <div class="price">
-
-                            <strong>
-                                $1.090
-                            </strong>
-
-                            <span>
-                                Precio habitual
-                            </span>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <!-- SERVICIO 3 -->
-
-                    <article class="service-card reveal">
-
-                        <div class="service-number">
-                            03
-                        </div>
-
-                        <h3>
-                            Perfilado
-                            de Cejas
-                        </h3>
-
-                        <p>
-
-                            Perfilado personalizado para
-                            definir tus cejas respetando
-                            la forma natural de tu rostro.
-
-                        </p>
-
-
-                        <div class="price">
-
-                            <strong>
-                                $600
-                            </strong>
-
-                            <span>
-                                Precio habitual
-                            </span>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================================
-             PROMOCIONES DE OCTUBRE
-        ========================================== -->
-
-        <section
-            class="section promotions"
-            id="promociones"
-        >
-
-            <div class="container">
-
-
-                <div class="section-header reveal">
-
-
-                    <span class="promo-badge">
-
-                        Octubre · Promociones del Mes
-
+                    <span>
+                        Descubrir servicios
                     </span>
 
-
-                    <h2 class="section-title">
-
-                        Octubre se disfruta
-                        en Bellenzia.
-
-                    </h2>
-
-
-                    <p class="section-description">
-
-                        Aprovechá nuestras promociones
-                        especiales durante el mes de octubre.
-
-                    </p>
-
-                </div>
-
-
-
-                <div class="promo-grid">
-
-
-                    <!-- PROMO 1 -->
-
-                    <article class="promo-card reveal">
-
-
-                        <span class="promo-label">
-
-                            Promo Octubre
-
-                        </span>
-
-
-                        <h3>
-
-                            Lash Lifting
-                            + Serum
-
-                        </h3>
-
-
-                        <div class="promo-price">
-
-                            <span class="old-price">
-
-                                $1.700
-
-                            </span>
-
-
-                            <span class="new-price">
-
-                                $1.275
-
-                            </span>
-
-                        </div>
-
-
-                        <p class="saving">
-
-                            Ahorrás $425
-
-                        </p>
-
-
-                        <a
-                            href="https://wa.me/59898910775?text=Hola%20Bellenzia%20Studio%2C%20quiero%20aprovechar%20la%20promoci%C3%B3n%20de%20octubre%20de%20Lash%20Lifting%20%2B%20Serum%20a%20%241.275."
-                            target="_blank"
-                            class="btn btn-promo"
-                        >
-
-                            Aprovechar Promo
-
-                            <i class="fa-brands fa-whatsapp"></i>
-
-                        </a>
-
-                    </article>
-
-
-
-                    <!-- PROMO 2 -->
-
-                    <article class="promo-card reveal">
-
-
-                        <span class="promo-label">
-
-                            Promo Octubre
-
-                        </span>
-
-
-                        <h3>
-
-                            Perfilado
-                            + Laminado de Cejas
-
-                        </h3>
-
-
-                        <div class="promo-price">
-
-                            <span class="old-price">
-
-                                $1.090
-
-                            </span>
-
-
-                            <span class="new-price">
-
-                                $815
-
-                            </span>
-
-                        </div>
-
-
-                        <p class="saving">
-
-                            Ahorrás $275
-
-                        </p>
-
-
-                        <a
-                            href="https://wa.me/59898910775?text=Hola%20Bellenzia%20Studio%2C%20quiero%20aprovechar%20la%20promoci%C3%B3n%20de%20octubre%20de%20Perfilado%20%2B%20Laminado%20de%20Cejas%20a%20%24815."
-                            target="_blank"
-                            class="btn btn-promo"
-                        >
-
-                            Aprovechar Promo
-
-                            <i class="fa-brands fa-whatsapp"></i>
-
-                        </a>
-
-                    </article>
-
-
-
-                    <!-- PROMO 3 -->
-
-                    <article class="promo-card reveal">
-
-
-                        <span class="promo-label">
-
-                            Promo Octubre
-
-                        </span>
-
-
-                        <h3>
-
-                            Perfilado
-                            de Cejas
-
-                        </h3>
-
-
-                        <div class="promo-price">
-
-                            <span class="old-price">
-
-                                $600
-
-                            </span>
-
-
-                            <span class="new-price">
-
-                                $450
-
-                            </span>
-
-                        </div>
-
-
-                        <p class="saving">
-
-                            Ahorrás $150
-
-                        </p>
-
-
-                        <a
-                            href="https://wa.me/59898910775?text=Hola%20Bellenzia%20Studio%2C%20quiero%20aprovechar%20la%20promoci%C3%B3n%20de%20octubre%20de%20Perfilado%20de%20Cejas%20a%20%24450."
-                            target="_blank"
-                            class="btn btn-promo"
-                        >
-
-                            Aprovechar Promo
-
-                            <i class="fa-brands fa-whatsapp"></i>
-
-                        </a>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================================
-             UBICACIONES
-        ========================================== -->
-
-        <section
-            class="section locations"
-            id="ubicaciones"
-        >
-
-            <div class="container">
-
-
-                <div class="section-header reveal">
-
-
-                    <span class="eyebrow">
-                        Encontranos
-                    </span>
-
-
-                    <h2 class="section-title">
-
-                        Dos lugares,
-                        un mismo cuidado.
-
-                    </h2>
-
-
-                    <p class="section-description">
-
-                        Elegí la sede que te quede
-                        más cómoda.
-
-                    </p>
-
-                </div>
-
-
-
-                <div class="locations-grid">
-
-
-                    <!-- POCITOS -->
-
-                    <article class="location-card reveal">
-
-
-                        <div class="location-icon">
-
-                            <i class="fa-solid fa-location-dot"></i>
-
-                        </div>
-
-
-                        <h3>
-                            Pocitos
-                        </h3>
-
-
-                        <p>
-                            Montevideo, Uruguay
-                        </p>
-
-
-                        <a
-                            href="https://www.google.com/maps/search/?api=1&query=Pocitos%2C%20Montevideo%2C%20Uruguay"
-                            target="_blank"
-                            class="location-link"
-                        >
-
-                            Ver ubicación
-
-                            <i class="fa-solid fa-arrow-right"></i>
-
-                        </a>
-
-                    </article>
-
-
-
-                    <!-- CHUY -->
-
-                    <article class="location-card reveal">
-
-
-                        <div class="location-icon">
-
-                            <i class="fa-solid fa-location-dot"></i>
-
-                        </div>
-
-
-                        <h3>
-                            Chuy
-                        </h3>
-
-
-                        <p>
-                            Rocha, Uruguay
-                        </p>
-
-
-                        <a
-                            href="https://www.google.com/maps/search/?api=1&query=Chuy%2C%20Rocha%2C%20Uruguay"
-                            target="_blank"
-                            class="location-link"
-                        >
-
-                            Ver ubicación
-
-                            <i class="fa-solid fa-arrow-right"></i>
-
-                        </a>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================================
-             CONTACTO
-        ========================================== -->
-
-        <section
-            class="section contact"
-            id="contacto"
-        >
-
-            <div class="container">
-
-
-                <div class="contact-wrapper reveal">
-
-
-                    <div>
-
-
-                        <span class="eyebrow">
-
-                            Contactanos
-
-                        </span>
-
-
-                        <h2>
-
-                            Tu próxima
-                            cita empieza
-                            acá.
-
-                        </h2>
-
-
-                        <p>
-
-                            Escribinos para consultar
-                            disponibilidad, servicios
-                            o reservar tu lugar.
-
-                        </p>
-
-                    </div>
-
-
-
-                    <div class="contact-info">
-
-
-                        <!-- WHATSAPP -->
-
-                        <a
-                            href="https://wa.me/59898910775"
-                            target="_blank"
-                            class="contact-item"
-                        >
-
-                            <span>
-
-                                <i class="fa-brands fa-whatsapp"></i>
-
-                            </span>
-
-
-                            <div>
-
-                                <small>
-                                    WhatsApp
-                                </small>
-
-                                <strong>
-                                    098 910 775
-                                </strong>
-
-                            </div>
-
-                        </a>
-
-
-
-                        <!-- INSTAGRAM -->
-
-                        <a
-                            href="https://instagram.com/bellenzia.studio"
-                            target="_blank"
-                            class="contact-item"
-                        >
-
-                            <span>
-
-                                <i class="fa-brands fa-instagram"></i>
-
-                            </span>
-
-
-                            <div>
-
-                                <small>
-                                    Instagram
-                                </small>
-
-                                <strong>
-                                    @bellenzia.studio
-                                </strong>
-
-                            </div>
-
-                        </a>
-
-
-
-                        <!-- CTA -->
-
-                        <a
-                            href="https://wa.me/59898910775?text=Hola%20Bellenzia%20Studio%2C%20quiero%20consultar%20por%20los%20horarios%20disponibles."
-                            target="_blank"
-                            class="btn btn-promo"
-                        >
-
-                            Consultar disponibilidad
-
-                            <i class="fa-brands fa-whatsapp"></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-
-    <!-- =========================================
-         FOOTER
-    ========================================== -->
-
-    <footer>
-
-        <div class="container">
-
-
-            <div class="footer-grid">
-
-
-                <!-- MARCA -->
-
-                <div>
-
-                    <div class="footer-logo">
-
-                        Bellenzia Studio
-
-                    </div>
-
-
-                    <p class="footer-description">
-
-                        Realzamos tu belleza natural
-                        con técnicas pensadas para vos.
-
-                    </p>
-
-                </div>
-
-
-
-                <!-- NAVEGACIÓN -->
-
-                <div>
-
-                    <h4>
-                        Navegación
-                    </h4>
-
-
-                    <ul>
-
-                        <li>
-                            <a href="#inicio">
-                                Inicio
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#servicios">
-                                Servicios
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#promociones">
-                                Promociones de Octubre
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#ubicaciones">
-                                Ubicaciones
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-
-                <!-- UBICACIONES -->
-
-                <div>
-
-                    <h4>
-                        Ubicaciones
-                    </h4>
-
-
-                    <ul>
-
-                        <li>
-                            <a href="#ubicaciones">
-                                Pocitos
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#ubicaciones">
-                                Chuy
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-
-                <!-- REDES -->
-
-                <div>
-
-                    <h4>
-                        Seguinos
-                    </h4>
-
-
-                    <ul>
-
-                        <li>
-
-                            <a
-                                href="https://instagram.com/bellenzia.studio"
-                                target="_blank"
-                            >
-
-                                Instagram
-
-                            </a>
-
-                        </li>
-
-
-                        <li>
-
-                            <a
-                                href="https://wa.me/59898910775"
-                                target="_blank"
-                            >
-
-                                WhatsApp
-
-                            </a>
-
-                        </li>
-
-                    </ul>
-
-                </div>
+                </a>
 
             </div>
 
 
+            <!-- LOCATIONS -->
 
-            <div class="copyright">
+            <div
+                class="mt-14 flex flex-wrap items-center gap-5 text-[8px] uppercase tracking-[.3em] text-brown"
+            >
 
-                © 2026 Bellenzia Studio ·
-                Todos los derechos reservados.
+                <span>
+                    Pocitos
+                </span>
+
+                <span class="w-1 h-1 rounded-full bg-champagne"></span>
+
+                <span>
+                    Chuy
+                </span>
+
+                <span class="w-1 h-1 rounded-full bg-champagne"></span>
+
+                <span>
+                    Uruguay
+                </span>
 
             </div>
 
         </div>
 
-    </footer>
+    </div>
 
 
+    <!-- SIDE TEXT -->
 
-    <!-- =========================================
-         WHATSAPP FLOTANTE
-    ========================================== -->
-
-    <a
-        href="https://wa.me/59898910775?text=Hola%20Bellenzia%20Studio%2C%20quiero%20agendar%20una%20cita."
-        target="_blank"
-        class="whatsapp-float"
-        aria-label="Contactar por WhatsApp"
+    <div
+        class="absolute right-8 bottom-20 hidden lg:flex items-center gap-4 text-[8px] uppercase tracking-[.4em] text-brown/50"
     >
 
-        <i class="fa-brands fa-whatsapp"></i>
+        <span>
+            Natural Beauty
+        </span>
 
-    </a>
+        <span class="w-12 h-px bg-brown/20"></span>
 
-
-
-    <!-- =========================================
-         JAVASCRIPT
-    ========================================== -->
-
-    <script>
+    </div>
 
 
-        /* =========================================
-           MENÚ MOBILE
-        ========================================== */
+    <!-- SCROLL -->
 
-        const menuToggle =
-            document.getElementById("menuToggle");
+    <div
+        class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[8px] uppercase tracking-[.35em] text-brown/45"
+    >
 
-        const navMenu =
-            document.getElementById("navMenu");
+        <span>
+            Scroll
+        </span>
 
+        <span class="w-px h-8 bg-brown/20"></span>
 
-        menuToggle.addEventListener(
-            "click",
-            () => {
+    </div>
 
-                navMenu.classList.toggle("active");
-
-                const icon =
-                    menuToggle.querySelector("i");
+</section>
 
 
-                if (
-                    navMenu.classList.contains("active")
-                ) {
 
-                    icon.classList.remove(
-                        "fa-bars"
-                    );
+<!-- =========================================================
+     SERVICIOS
+========================================================= -->
 
-                    icon.classList.add(
-                        "fa-xmark"
-                    );
+<section
+    id="servicios"
+    class="py-28 lg:py-32 bg-beige"
+>
 
-                } else {
-
-                    icon.classList.remove(
-                        "fa-xmark"
-                    );
-
-                    icon.classList.add(
-                        "fa-bars"
-                    );
-
-                }
-
-            }
-        );
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
 
 
-        /* =========================================
-           CERRAR MENÚ AL HACER CLICK
-        ========================================== */
+        <!-- HEADER -->
 
-        document
-            .querySelectorAll(".nav-menu a")
-            .forEach(link => {
+        <div
+            class="text-center max-w-2xl mx-auto mb-16 reveal"
+        >
 
-                link.addEventListener(
-                    "click",
-                    () => {
+            <span
+                class="text-[9px] uppercase tracking-[.4em] text-brown"
+            >
+                Nuestros tratamientos
+            </span>
 
-                        navMenu.classList.remove(
-                            "active"
-                        );
+            <h2
+                class="font-title text-5xl sm:text-6xl mt-4 text-chocolate leading-none"
+            >
+                Servicios pensados para vos
+            </h2>
+
+            <div class="flex items-center justify-center gap-4 mt-6">
+
+                <span class="w-12 h-px bg-champagne"></span>
+
+                <span class="w-1.5 h-1.5 rounded-full bg-champagne"></span>
+
+                <span class="w-12 h-px bg-champagne"></span>
+
+            </div>
+
+            <p
+                class="text-xs text-chocolate/55 mt-6 leading-6 max-w-lg mx-auto"
+            >
+                Técnicas cuidadosamente seleccionadas para
+                resaltar tus facciones, mantener la naturalidad
+                y potenciar tu mirada.
+            </p>
+
+        </div>
 
 
-                        const icon =
-                            menuToggle.querySelector("i");
+        <!-- CARDS -->
+
+        <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
 
 
-                        icon.classList.remove(
-                            "fa-xmark"
-                        );
+            <!-- CARD 1 -->
+
+            <article
+                class="service-card bg-ivory border border-chocolate/10 p-8 lg:p-10 reveal"
+            >
+
+                <div class="flex justify-between items-start">
+
+                    <span
+                        class="service-number w-11 h-11 rounded-full border border-chocolate/15 flex items-center justify-center text-[9px]"
+                    >
+                        01
+                    </span>
+
+                    <span
+                        class="text-[8px] uppercase tracking-[.22em] text-taupe"
+                    >
+                        Más elegido
+                    </span>
+
+                </div>
 
 
-                        icon.classList.add(
-                            "fa-bars"
-                        );
+                <div class="mt-12">
 
-                    }
+                    <h3
+                        class="font-title text-4xl text-chocolate leading-none"
+                    >
+                        Lash Lifting
+                    </h3>
+
+                    <p
+                        class="text-[9px] uppercase tracking-[.2em] text-brown mt-2"
+                    >
+                        + Serum
+                    </p>
+
+                    <p
+                        class="text-xs leading-6 text-chocolate/60 mt-7"
+                    >
+                        Curvatura, elevación y nutrición para
+                        lograr una mirada más abierta y definida
+                        sin perder naturalidad.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="border-t border-chocolate/10 mt-10 pt-6 flex justify-between items-end"
+                >
+
+                    <span
+                        class="text-[8px] uppercase tracking-[.2em] text-taupe"
+                    >
+                        Precio habitual
+                    </span>
+
+                    <span
+                        class="font-title text-4xl text-chocolate"
+                    >
+                        $1.700
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- CARD 2 -->
+
+            <article
+                class="service-card bg-ivory border border-chocolate/10 p-8 lg:p-10 reveal"
+            >
+
+                <div class="flex justify-between items-start">
+
+                    <span
+                        class="service-number w-11 h-11 rounded-full border border-chocolate/15 flex items-center justify-center text-[9px]"
+                    >
+                        02
+                    </span>
+
+                </div>
+
+
+                <div class="mt-12">
+
+                    <h3
+                        class="font-title text-4xl text-chocolate leading-none"
+                    >
+                        Perfilado
+                    </h3>
+
+                    <p
+                        class="text-[9px] uppercase tracking-[.2em] text-brown mt-2"
+                    >
+                        + Laminado de cejas
+                    </p>
+
+                    <p
+                        class="text-xs leading-6 text-chocolate/60 mt-7"
+                    >
+                        Diseño, simetría y fijación para conseguir
+                        cejas definidas, ordenadas y naturales,
+                        adaptadas a tus facciones.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="border-t border-chocolate/10 mt-10 pt-6 flex justify-between items-end"
+                >
+
+                    <span
+                        class="text-[8px] uppercase tracking-[.2em] text-taupe"
+                    >
+                        Precio habitual
+                    </span>
+
+                    <span
+                        class="font-title text-4xl text-chocolate"
+                    >
+                        $1.090
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- CARD 3 -->
+
+            <article
+                class="service-card bg-ivory border border-chocolate/10 p-8 lg:p-10 reveal"
+            >
+
+                <div class="flex justify-between items-start">
+
+                    <span
+                        class="service-number w-11 h-11 rounded-full border border-chocolate/15 flex items-center justify-center text-[9px]"
+                    >
+                        03
+                    </span>
+
+                </div>
+
+
+                <div class="mt-12">
+
+                    <h3
+                        class="font-title text-4xl text-chocolate leading-none"
+                    >
+                        Perfilado
+                    </h3>
+
+                    <p
+                        class="text-[9px] uppercase tracking-[.2em] text-brown mt-2"
+                    >
+                        De cejas
+                    </p>
+
+                    <p
+                        class="text-xs leading-6 text-chocolate/60 mt-7"
+                    >
+                        Diseño personalizado y depilación precisa
+                        para enmarcar tu rostro y potenciar la
+                        expresión de tu mirada.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="border-t border-chocolate/10 mt-10 pt-6 flex justify-between items-end"
+                >
+
+                    <span
+                        class="text-[8px] uppercase tracking-[.2em] text-taupe"
+                    >
+                        Precio habitual
+                    </span>
+
+                    <span
+                        class="font-title text-4xl text-chocolate"
+                    >
+                        $600
+                    </span>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PROMOCIONES
+========================================================= -->
+
+<section
+    id="promociones"
+    class="py-28 lg:py-32 bg-chocolate text-cream relative overflow-hidden"
+>
+
+
+    <!-- DECORATION -->
+
+    <div
+        class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full border border-cream/5 -translate-y-1/2 translate-x-1/2"
+    ></div>
+
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+
+
+        <div
+            class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 reveal"
+        >
+
+            <div>
+
+                <span
+                    class="text-[9px] uppercase tracking-[.4em] text-champagne"
+                >
+                    Octubre · Bellenzia
+                </span>
+
+                <h2
+                    class="font-title text-5xl sm:text-6xl lg:text-7xl mt-4 leading-none"
+                >
+                    Promociones especiales
+                </h2>
+
+            </div>
+
+
+            <p
+                class="max-w-sm text-xs leading-6 text-cream/55"
+            >
+                Regalate un momento de cuidado y descubrí
+                nuestras promociones especiales de octubre.
+            </p>
+
+        </div>
+
+
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+
+            <!-- PROMO 1 -->
+
+            <article
+                class="promo-card bg-dark border border-cream/10 p-8 lg:p-9 reveal"
+            >
+
+                <span
+                    class="relative z-10 inline-block bg-cream text-chocolate px-3 py-1.5 text-[8px] uppercase tracking-[.2em]"
+                >
+                    Ahorrás $425
+                </span>
+
+
+                <h3
+                    class="relative z-10 font-title text-4xl mt-9"
+                >
+                    Lash Lifting
+                </h3>
+
+                <p
+                    class="relative z-10 text-[9px] uppercase tracking-[.2em] text-champagne mt-1"
+                >
+                    + Serum
+                </p>
+
+
+                <div
+                    class="relative z-10 mt-8 pt-6 border-t border-cream/10"
+                >
+
+                    <div
+                        class="text-xs text-cream/35 line-through"
+                    >
+                        $1.700
+                    </div>
+
+                    <div
+                        class="font-title text-6xl mt-1"
+                    >
+                        $1.275
+                    </div>
+
+                    <div
+                        class="text-[8px] uppercase tracking-[.2em] text-cream/35 mt-2"
+                    >
+                        Precio octubre
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="https://wa.me/59898910775?text=Hola%20Bellenzia%20Studio%2C%20quiero%20aprovechar%20la%20promoci%C3%B3n%20de%20octubre%20de%20Lash%20Lifting%20%2B%20Serum%20a%20%241.275"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="luxury-btn relative z-10 block bg-cream text-chocolate text-center py-4 mt-8 text-[9px] uppercase tracking-[.2em]"
+                >
+
+                    <span>
+                        Aprovechar promoción
+                    </span>
+
+                </a>
+
+            </article>
+
+
+
+            <!-- PROMO 2 -->
+
+            <article
+                class="promo-card bg-dark border border-cream/10 p-8 lg:p-9 reveal"
+            >
+
+                <span
+                    class="relative z-10 inline-block bg-cream text-chocolate px-3 py-1.5 text-[8px] uppercase tracking-[.2em]"
+                >
+                    Ahorrás $275
+                </span>
+
+
+                <h3
+                    class="relative z-10 font-title text-4xl mt-9"
+                >
+                    Perfilado + Laminado
+                </h3>
+
+                <p
+                    class="relative z-10 text-[9px] uppercase tracking-[.2em] text-champagne mt-1"
+                >
+                    Cejas
+                </p>
+
+
+                <div
+                    class="relative z-10 mt-8 pt-6 border-t border-cream/10"
+                >
+
+                    <div
+                        class="text-xs text-cream/35 line-through"
+                    >
+                        $1.090
+                    </div>
+
+                    <div
+                        class="font-title text-6xl mt-1"
+                    >
+                        $815
+                    </div>
+
+                    <div
+                        class="text-[8px] uppercase tracking-[.2em] text-cream/35 mt-2"
+                    >
+                        Precio octubre
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="https://wa.me/59898910775?text=Hola%20Bellenzia%20Studio%2C%20quiero%20aprovechar%20la%20promoci%C3%B3n%20de%20octubre%20de%20Perfilado%20%2B%20Laminado%20de%20Cejas%20a%20%24815"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="luxury-btn relative z-10 block bg-cream text-chocolate text-center py-4 mt-8 text-[9px] uppercase tracking-[.2em]"
+                >
+
+                    <span>
+                        Aprovechar promoción
+                    </span>
+
+                </a>
+
+            </article>
+
+
+
+            <!-- PROMO 3 -->
+
+            <article
+                class="promo-card bg-dark border border-cream/10 p-8 lg:p-9 reveal"
+            >
+
+                <span
+                    class="relative z-10 inline-block bg-cream text-chocolate px-3 py-1.5 text-[8px] uppercase tracking-[.2em]"
+                >
+                    Ahorrás $150
+                </span>
+
+
+                <h3
+                    class="relative z-10 font-title text-4xl mt-9"
+                >
+                    Perfilado
+                </h3>
+
+                <p
+                    class="relative z-10 text-[9px] uppercase tracking-[.2em] text-champagne mt-1"
+                >
+                    De cejas
+                </p>
+
+
+                <div
+                    class="relative z-10 mt-8 pt-6 border-t border-cream/10"
+                >
+
+                    <div
+                        class="text-xs text-cream/35 line-through"
+                    >
+                        $600
+                    </div>
+
+                    <div
+                        class="font-title text-6xl mt-1"
+                    >
+                        $450
+                    </div>
+
+                    <div
+                        class="text-[8px] uppercase tracking-[.2em] text-cream/35 mt-2"
+                    >
+                        Precio octubre
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="https://wa.me/59898910775?text=Hola%20Bellenzia%20Studio%2C%20quiero%20aprovechar%20la%20promoci%C3%B3n%20de%20octubre%20de%20Perfilado%20de%20Cejas%20a%20%24450"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="luxury-btn relative z-10 block bg-cream text-chocolate text-center py-4 mt-8 text-[9px] uppercase tracking-[.2em]"
+                >
+
+                    <span>
+                        Aprovechar promoción
+                    </span>
+
+                </a>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     UBICACIONES
+========================================================= -->
+
+<section
+    id="ubicaciones"
+    class="py-28 lg:py-32 bg-ivory"
+>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+
+        <div
+            class="text-center max-w-2xl mx-auto mb-16 reveal"
+        >
+
+            <span
+                class="text-[9px] uppercase tracking-[.4em] text-brown"
+            >
+                Encontranos
+            </span>
+
+            <h2
+                class="font-title text-5xl sm:text-6xl mt-4 text-chocolate leading-none"
+            >
+                Dos espacios,
+                <br>
+                una misma esencia
+            </h2>
+
+            <p
+                class="text-xs text-chocolate/50 mt-6"
+            >
+                Elegí la ubicación que te quede más cómoda.
+            </p>
+
+        </div>
+
+
+
+        <div class="grid md:grid-cols-2 gap-7 max-w-5xl mx-auto">
+
+
+            <!-- POCITOS -->
+
+            <article
+                class="location-card bg-beige p-9 lg:p-12 reveal"
+            >
+
+                <div
+                    class="w-12 h-12 rounded-full bg-ivory flex items-center justify-center"
+                >
+
+                    <i
+                        class="fa-solid fa-location-dot text-brown"
+                    ></i>
+
+                </div>
+
+
+                <span
+                    class="block text-[8px] uppercase tracking-[.3em] text-taupe mt-8"
+                >
+                    Sede Montevideo
+                </span>
+
+
+                <h3
+                    class="font-title text-5xl mt-2 text-chocolate"
+                >
+                    Pocitos
+                </h3>
+
+
+                <p
+                    class="text-xs text-brown mt-2"
+                >
+                    Montevideo, Uruguay
+                </p>
+
+
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=Pocitos+Montevideo+Uruguay"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex justify-between items-center border-t border-chocolate/10 mt-10 pt-5 text-[9px] uppercase tracking-[.2em] hover:text-brown transition-colors"
+                >
+
+                    Ver ubicación
+
+                    <span class="text-lg">
+                        →
+                    </span>
+
+                </a>
+
+            </article>
+
+
+
+            <!-- CHUY -->
+
+            <article
+                class="location-card bg-beige p-9 lg:p-12 reveal"
+            >
+
+                <div
+                    class="w-12 h-12 rounded-full bg-ivory flex items-center justify-center"
+                >
+
+                    <i
+                        class="fa-solid fa-location-dot text-brown"
+                    ></i>
+
+                </div>
+
+
+                <span
+                    class="block text-[8px] uppercase tracking-[.3em] text-taupe mt-8"
+                >
+                    Sede Rocha
+                </span>
+
+
+                <h3
+                    class="font-title text-5xl mt-2 text-chocolate"
+                >
+                    Chuy
+                </h3>
+
+
+                <p
+                    class="text-xs text-brown mt-2"
+                >
+                    Rocha, Uruguay
+                </p>
+
+
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=Chuy+Rocha+Uruguay"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex justify-between items-center border-t border-chocolate/10 mt-10 pt-5 text-[9px] uppercase tracking-[.2em] hover:text-brown transition-colors"
+                >
+
+                    Ver ubicación
+
+                    <span class="text-lg">
+                        →
+                    </span>
+
+                </a>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CONTACTO
+========================================================= -->
+
+<section
+    id="contacto"
+    class="py-28 lg:py-36 bg-beige relative overflow-hidden"
+>
+
+
+    <!-- DECORATIVE CIRCLE -->
+
+    <div
+        class="absolute w-[400px] h-[400px] rounded-full border border-chocolate/5 -right-48 top-1/2 -translate-y-1/2"
+    ></div>
+
+
+    <div
+        class="max-w-4xl mx-auto px-6 text-center relative z-10 reveal"
+    >
+
+        <span
+            class="text-[9px] uppercase tracking-[.4em] text-brown"
+        >
+            Atención personalizada
+        </span>
+
+
+        <h2
+            class="font-title text-5xl sm:text-6xl lg:text-7xl text-chocolate mt-5 leading-[.9]"
+        >
+            Tu próxima cita
+            <br>
+            comienza acá.
+        </h2>
+
+
+        <p
+            class="text-xs text-chocolate/55 max-w-md mx-auto mt-7 leading-6"
+        >
+            Escribinos para consultar disponibilidad,
+            promociones y reservar tu momento Bellenzia.
+        </p>
+
+
+        <div
+            class="mt-10 flex flex-col sm:flex-row justify-center gap-4"
+        >
+
+            <a
+                href="https://wa.me/59898910775?text=Hola%20Bellenzia%20Studio%2C%20quiero%20consultar%20por%20una%20cita"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="luxury-btn bg-chocolate text-cream px-8 py-5 text-[9px] uppercase tracking-[.22em]"
+            >
+
+                <i class="fa-brands fa-whatsapp mr-2"></i>
+
+                <span>
+                    WhatsApp · 098 910 775
+                </span>
+
+            </a>
+
+
+            <a
+                href="https://instagram.com/bellenzia.studio"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="instagram-btn bg-ivory border border-chocolate/15 px-8 py-5 text-[9px] uppercase tracking-[.22em]"
+            >
+
+                <i class="fa-brands fa-instagram mr-2"></i>
+
+                @bellenzia.studio
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer
+    class="bg-dark text-cream py-16"
+>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+
+        <div class="grid md:grid-cols-4 gap-12">
+
+
+            <!-- BRAND -->
+
+            <div>
+
+                <div
+                    class="font-title text-3xl tracking-[.15em]"
+                >
+                    BELLENZIA
+                </div>
+
+                <div
+                    class="text-[8px] tracking-[.45em] uppercase text-taupe mt-1"
+                >
+                    Studio
+                </div>
+
+                <p
+                    class="text-[10px] leading-6 text-cream/45 mt-5 max-w-xs"
+                >
+                    Lash Lifting, cejas y belleza natural.
+                    Un espacio pensado para realzar tu esencia.
+                </p>
+
+            </div>
+
+
+
+            <!-- MENU -->
+
+            <div>
+
+                <h4
+                    class="text-[9px] uppercase tracking-[.3em] text-champagne mb-5"
+                >
+                    Menú
+                </h4>
+
+                <div
+                    class="space-y-3 text-xs text-cream/55"
+                >
+
+                    <a
+                        href="#inicio"
+                        class="block hover:text-cream transition-colors"
+                    >
+                        Inicio
+                    </a>
+
+                    <a
+                        href="#servicios"
+                        class="block hover:text-cream transition-colors"
+                    >
+                        Servicios
+                    </a>
+
+                    <a
+                        href="#promociones"
+                        class="block hover:text-cream transition-colors"
+                    >
+                        Promociones
+                    </a>
+
+                    <a
+                        href="#ubicaciones"
+                        class="block hover:text-cream transition-colors"
+                    >
+                        Ubicaciones
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- UBICACIONES -->
+
+            <div>
+
+                <h4
+                    class="text-[9px] uppercase tracking-[.3em] text-champagne mb-5"
+                >
+                    Ubicaciones
+                </h4>
+
+                <div
+                    class="space-y-3 text-xs text-cream/55"
+                >
+
+                    <p>
+                        Pocitos · Montevideo
+                    </p>
+
+                    <p>
+                        Chuy · Rocha
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CONTACTO -->
+
+            <div>
+
+                <h4
+                    class="text-[9px] uppercase tracking-[.3em] text-champagne mb-5"
+                >
+                    Contacto
+                </h4>
+
+                <div
+                    class="space-y-4 text-xs text-cream/55"
+                >
+
+                    <a
+                        href="https://wa.me/59898910775"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex items-center gap-3 hover:text-cream transition-colors"
+                    >
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        098 910 775
+
+                    </a>
+
+
+                    <a
+                        href="https://instagram.com/bellenzia.studio"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex items-center gap-3 hover:text-cream transition-colors"
+                    >
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                        @bellenzia.studio
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- BOTTOM -->
+
+        <div
+            class="border-t border-cream/10 mt-14 pt-7 flex flex-col sm:flex-row justify-between gap-3 text-[8px] uppercase tracking-[.2em] text-cream/30"
+        >
+
+            <span>
+                © 2026 Bellenzia Studio
+            </span>
+
+            <span>
+                Montevideo · Rocha · Uruguay
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     FLOATING WHATSAPP
+========================================================= -->
+
+<a
+    href="https://wa.me/59898910775?text=Hola%20Bellenzia%20Studio%2C%20quiero%20agendar%20una%20cita"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Agendar por WhatsApp"
+    class="whatsapp-float fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-xl"
+>
+
+    <i class="fa-brands fa-whatsapp text-2xl"></i>
+
+</a>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+
+
+    /* =====================================
+       MOBILE MENU
+    ===================================== */
+
+    const button =
+        document.getElementById('mobile-menu-btn');
+
+    const menu =
+        document.getElementById('mobile-menu');
+
+    const icon =
+        document.getElementById('menu-icon');
+
+
+    button.addEventListener('click', () => {
+
+        const open =
+            !menu.classList.contains('hidden');
+
+
+        if (open) {
+
+            menu.classList.add('hidden');
+
+            icon.classList.remove('fa-xmark');
+
+            icon.classList.add('fa-bars');
+
+            button.setAttribute(
+                'aria-label',
+                'Abrir menú'
+            );
+
+        } else {
+
+            menu.classList.remove('hidden');
+
+            icon.classList.remove('fa-bars');
+
+            icon.classList.add('fa-xmark');
+
+            button.setAttribute(
+                'aria-label',
+                'Cerrar menú'
+            );
+
+        }
+
+    });
+
+
+
+    /* =====================================
+       CLOSE MOBILE MENU
+    ===================================== */
+
+    document
+        .querySelectorAll('.mobile-link')
+        .forEach(link => {
+
+            link.addEventListener('click', () => {
+
+                menu.classList.add('hidden');
+
+                icon.classList.remove('fa-xmark');
+
+                icon.classList.add('fa-bars');
+
+                button.setAttribute(
+                    'aria-label',
+                    'Abrir menú'
                 );
 
             });
 
+        });
 
 
-        /* =========================================
-           ANIMACIONES AL HACER SCROLL
-        ========================================== */
 
-        const revealElements =
-            document.querySelectorAll(".reveal");
+    /* =====================================
+       SCROLL REVEAL
+    ===================================== */
 
+    const observer =
+        new IntersectionObserver(
 
-        const observer =
-            new IntersectionObserver(
+            entries => {
 
-                entries => {
+                entries.forEach(entry => {
 
-                    entries.forEach(entry => {
+                    if (entry.isIntersecting) {
 
-                        if (
-                            entry.isIntersecting
-                        ) {
+                        entry.target.classList.add('active');
 
-                            entry.target
-                                .classList
-                                .add("active");
+                        observer.unobserve(entry.target);
 
+                    }
 
-                            observer.unobserve(
-                                entry.target
-                            );
+                });
 
-                        }
+            },
 
-                    });
+            {
+                threshold: 0.12
+            }
 
-                },
-
-                {
-                    threshold: 0.12
-                }
-
-            );
+        );
 
 
-        revealElements.forEach(element => {
+    document
+        .querySelectorAll('.reveal')
+        .forEach(element => {
 
             observer.observe(element);
 
@@ -2881,39 +2248,41 @@
 
 
 
-        /* =========================================
-           HEADER AL HACER SCROLL
-        ========================================== */
+    /* =====================================
+       NAVBAR SCROLL EFFECT
+    ===================================== */
 
-        const header =
-            document.getElementById("header");
+    const navbar =
+        document.getElementById('navbar');
 
 
-        window.addEventListener(
-            "scroll",
-            () => {
+    window.addEventListener(
+        'scroll',
+        () => {
 
-                if (
-                    window.scrollY > 40
-                ) {
+            if (window.scrollY > 30) {
 
-                    header.style.boxShadow =
-                        "0 8px 25px rgba(72,52,39,0.08)";
+                navbar.classList.add(
+                    'shadow-soft'
+                );
 
-                } else {
+            } else {
 
-                    header.style.boxShadow =
-                        "none";
-
-                }
+                navbar.classList.remove(
+                    'shadow-soft'
+                );
 
             }
-        );
 
-    </script>
+        }
+    );
+
+
+});
+
+</script>
 
 
 </body>
 
 </html>
-```
